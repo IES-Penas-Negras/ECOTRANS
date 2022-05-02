@@ -5,7 +5,12 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nucleo", "Nucleo", "{ED32D11F-3646-46E3-905E-462ED77BF589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleo", "Nucleo\Nucleo.csproj", "{A874315A-EB2D-4A75-8249-59249B147338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleo", "Nucleo\Nucleo.csproj", "{A874315A-EB2D-4A75-8249-59249B147338}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{7E1CD6C7-DA2B-46F6-8951-DBF223CA343A}"
+	ProjectSection(SolutionItems) = preProject
+		Donacion.cs = Donacion.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +28,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A874315A-EB2D-4A75-8249-59249B147338} = {ED32D11F-3646-46E3-905E-462ED77BF589}
+		{7E1CD6C7-DA2B-46F6-8951-DBF223CA343A} = {ED32D11F-3646-46E3-905E-462ED77BF589}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F2FE2B-29C0-4209-9BBC-C31287450938}
