@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nucleo.Acciones.Objeto
+namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
     internal class AccionesObjeto
     {
         public void Crear() { }
         public void Listar() { }
-        public void Editar() { }
+        public EditarObjetoResponse Editar(EditarObjetoRequest editar) 
+        {
+            EditarObjetoResponse response = new EditarObjetoResponse();
+            return response;
+        }
         public void Borrar() { }
 
     }
