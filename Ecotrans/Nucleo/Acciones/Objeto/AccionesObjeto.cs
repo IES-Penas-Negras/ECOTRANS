@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Nucleo.Acciones.Objeto
 {
-    internal class AccionesObjeto
+    public class AccionesObjeto
     {
+ 
         public void Crear() { }
         public void Listar() { }
         public void Editar() { }
-        public void Borrar() { }
+        public void BorrarObjeto() {
+            
+        }
 
     }
 }
