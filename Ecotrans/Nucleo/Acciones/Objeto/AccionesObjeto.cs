@@ -14,6 +14,12 @@ namespace Nucleo.Acciones.Objeto
             return new CrearObjetoResponse();
         }
         public void Listar() { }
+        public void Crear() { }
+        public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest ) 
+        { 
+            return new ListarObjetoResponse(); 
+            
+        }
         public void Editar() { }
         public void Borrar() { }
 
