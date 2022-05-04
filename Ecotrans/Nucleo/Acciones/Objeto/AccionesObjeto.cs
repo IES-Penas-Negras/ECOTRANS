@@ -11,7 +11,7 @@ namespace Nucleo.Acciones.Objeto
     {
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
         {
-            return 
+            return new CrearObjetoResponse();
         }
         public void Listar() { }
         public void Editar() { }
