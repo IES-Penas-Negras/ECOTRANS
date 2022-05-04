@@ -1,9 +1,8 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
+namespace  IESPeñasNegras.Ecotrans.Nucleo.Model;
 
-
-namespace Ecotrans
-{
     public class Donacion
     {
        
@@ -29,4 +28,3 @@ namespace Ecotrans
     }
         
    
-}
