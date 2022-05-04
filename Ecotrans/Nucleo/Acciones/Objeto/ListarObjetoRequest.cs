@@ -8,5 +8,5 @@ namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
 public class ListarObjetoRequest 
 {
-
+    public string? Buscar {get; set;}
 }

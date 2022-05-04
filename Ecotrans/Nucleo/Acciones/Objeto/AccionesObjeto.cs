@@ -12,7 +12,7 @@ namespace Nucleo.Acciones.Objeto
         public void Crear() { }
         public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest ) 
         { 
-            List<T>Elementos
+            return new ListarObjetoResponse(); 
             
         }
         public void Editar() { }
