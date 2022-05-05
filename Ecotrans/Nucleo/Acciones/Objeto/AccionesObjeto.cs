@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace Nucleo.Acciones.Objeto
+namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
     internal class AccionesObjeto
     {
@@ -13,14 +13,19 @@ namespace Nucleo.Acciones.Objeto
         {
             return new CrearObjetoResponse();
         }
-        public void Listar() { }
-        public void Crear() { }
+       
+        public EditarObjetoResponse Editar(EditarObjetoRequest editar) 
+        {
+            EditarObjetoResponse response = new EditarObjetoResponse();
+            return response;
+        }
+        
         public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest ) 
         { 
             return new ListarObjetoResponse(); 
             
         }
-        public void Editar() { }
+        
         public void Borrar() { }
 
     }
