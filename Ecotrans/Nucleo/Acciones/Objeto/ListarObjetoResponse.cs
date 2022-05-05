@@ -1,13 +1,23 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Objeto
+namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+public class ListarObjetoResponse
+{
+    public List<ListaObjetoElemento> Elementos {get; set;}
+
+}
+
+public class ListaObjetoElemento
 {
 	public int Id { get; set; }
-	[Required]
+    [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
-	public TipoObjeto TipoObjeto { get; set; }
 	public int TipoObjetoId { get; set; }
 	public Estado Estado { get; set; }
 	public decimal Altura { get; set; }
@@ -15,5 +25,3 @@ public class Objeto
 	public decimal Profundidad { get; set; }
 	public decimal Peso { get; set; }
 }
-
-

@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-public class Objeto
+namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+
+public class CrearObjetoRequest
 {
-	public int Id { get; set; }
-	[Required]
+    [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
 	public TipoObjeto TipoObjeto { get; set; }
@@ -15,5 +16,3 @@ public class Objeto
 	public decimal Profundidad { get; set; }
 	public decimal Peso { get; set; }
 }
-
-
