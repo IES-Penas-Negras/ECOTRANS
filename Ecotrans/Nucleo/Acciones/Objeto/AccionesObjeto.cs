@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nucleo.Acciones.Objeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
     public class AccionesObjeto
     {
@@ -12,8 +12,9 @@ namespace Nucleo.Acciones.Objeto
         public void Crear() { }
         public void Listar() { }
         public void Editar() { }
-        public void BorrarObjeto() {
-            
+        public void Borrar(BorrarObjetoRequest borrar) {
+
+       
         }
 
     }
