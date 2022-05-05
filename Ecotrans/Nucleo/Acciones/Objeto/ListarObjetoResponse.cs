@@ -14,6 +14,7 @@ public class ListarObjetoResponse
 
 public class ListaObjetoElemento
 {
+	public int Id { get; set; }
     [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
