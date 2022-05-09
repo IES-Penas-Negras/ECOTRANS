@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
-    internal class AccionesObjeto
+    public class AccionesObjeto
     {
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
         {
@@ -25,8 +24,8 @@ namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
             return new ListarObjetoResponse(); 
             
         }
-        
-        public void Borrar() { }
+
+        public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
 }
