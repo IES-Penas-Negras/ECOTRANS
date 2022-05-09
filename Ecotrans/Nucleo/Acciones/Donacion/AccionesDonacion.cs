@@ -1,13 +1,15 @@
 using System;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.AccionesDonacion;
-public class AccionesDonacion
+namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Donacion;
+internal class AccionesDonacion
 {
     public void Crear()
     {}
-
-    public void Listar()
-    {}
+     
+    public ListarDonacionResponse Listar(ListarDonacionResponse listarDonacionResponse)
+    {
+        return new ListarDonacionResponse();
+    }
 
     public void Editar()
     {}

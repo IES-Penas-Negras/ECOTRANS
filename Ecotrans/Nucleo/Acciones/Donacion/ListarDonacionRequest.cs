@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nucleo.Acciones.Donacion
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
 {
     public class ListarDonacionRequest
     {
