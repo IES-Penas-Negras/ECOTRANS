@@ -1,10 +1,12 @@
+using IESPeñasNegras.Ecotrans.Nucleo.Donacion.CrearDonacionRequest;
+using IESPeñasNegras.Ecotrans.Nucleo.Donacion.CrearDonacionResponse;
 using System;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.AccionesDonacion;
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
 public class AccionesDonacion
 {
-    public void Crear()
+    public void Crear(CrearDonacionRequest CrearDonacionResponse)
     {}
 
     public void Listar()
@@ -16,7 +18,7 @@ public class AccionesDonacion
             return response;
     }
     
-    public void Borrar()
+    public void Borrar(BorrarDonacionRequest borrarDonacionRequest)
     {
 
     }
