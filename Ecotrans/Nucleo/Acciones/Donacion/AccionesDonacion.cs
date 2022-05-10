@@ -1,4 +1,5 @@
 using System;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
 namespace IESPeñasNegras.Ecotrans.Nucleo.AccionesDonacion;
 public class AccionesDonacion
@@ -9,7 +10,7 @@ public class AccionesDonacion
     public void Listar()
     {}
 
-    public EditarDonacionReponse Editar(EditarDonacionRequest editar)
+    public EditarDonacionResponse Editar(EditarDonacionRequest editar)
     {
         EditarDonacionResponse response = new EditarDonacionResponse();
             return response;
