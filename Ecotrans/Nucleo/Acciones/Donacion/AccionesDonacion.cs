@@ -9,9 +9,10 @@ public class AccionesDonacion
     public void Listar()
     {}
 
-    public void Editar()
+    public EditarDonacionReponse Editar(EditarDonacionRequest editar)
     {
-        
+        EditarDonacionResponse response = new EditarDonacionResponse();
+            return response;
     }
     
     public void Borrar()

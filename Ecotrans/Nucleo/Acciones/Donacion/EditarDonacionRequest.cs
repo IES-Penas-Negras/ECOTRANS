@@ -7,7 +7,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
     {
         public int IdEdicion{get; set;}
         [Required]
-        [StringLenght(300)]
+        [StringLength (300)]
         public string Nombre {get; set;}
         public int TipoDonacionId {get; set;}
         public Estado Estado {get; set;}
