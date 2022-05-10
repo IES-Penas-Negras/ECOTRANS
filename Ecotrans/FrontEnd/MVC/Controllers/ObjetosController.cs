@@ -8,5 +8,7 @@ public class ObjetosController : Controller
     public IActionResult Index()
     {
         return View();
+        
     }
+    
 }

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace  IESPeñasNegras.Ecotrans.Nucleo.Model;
+namespace  IESPeniasNegras.Ecotrans.Nucleo.Model;
 
     public class Donacion
     {
@@ -11,7 +11,7 @@ namespace  IESPeñasNegras.Ecotrans.Nucleo.Model;
         
         public string Usuario { get; set; }
        // public string Objeto { get; set; }
-        //public string Dirección { get; set; }
+        //public string Direcciï¿½n { get; set; }
 
         [Required]
         [StringLength(400)]
