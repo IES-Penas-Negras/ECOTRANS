@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
+using Microsoft.AspNetCore.Mvc;
 
-namespace MVC.Controllers
+namespace IESPeniasNegras.Ecotrans.MVC.Controllers.DonacionesController
 {
     public class DonacionesController : Controller
     {
         public IActionResult Index()
         {
+            var donacion = new AccionesDonacion();
             return View();
         }
-
-        
     }
-
 }
