@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class Objeto
 {
-	public int Id { get; set; }
+	public int Id {get; set;}
 	[Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
