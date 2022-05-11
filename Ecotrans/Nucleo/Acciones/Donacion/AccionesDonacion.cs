@@ -1,6 +1,6 @@
 using System;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 public class AccionesDonacion
 {
     public void Crear()

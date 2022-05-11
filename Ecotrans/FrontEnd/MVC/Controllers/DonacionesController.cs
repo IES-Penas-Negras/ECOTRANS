@@ -1,4 +1,4 @@
-﻿using IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
+﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IESPeniasNegras.Ecotrans.MVC.Controllers
