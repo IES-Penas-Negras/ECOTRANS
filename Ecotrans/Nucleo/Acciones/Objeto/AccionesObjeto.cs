@@ -1,11 +1,13 @@
-﻿using System;
+﻿
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
-{
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
+
     public class AccionesObjeto
     {
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
@@ -28,4 +30,4 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
         public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
-}
+
