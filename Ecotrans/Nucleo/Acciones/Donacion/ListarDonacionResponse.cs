@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
-
-    public class ListarDonacionesResponse
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+{
+    public class ListarDonacionResponse
     {
-        public List<ListarDonacionesElemento> Elementos { get; set; }
+        public List<ListaDonacionElemento> Elementos { get; set; }
     }
 
-    public class ListarDonacionesElemento
+    public class ListaDonacionElemento
     {
 
         public string Usuario { get; set; }
