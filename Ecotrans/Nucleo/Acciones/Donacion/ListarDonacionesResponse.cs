@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPenasNegras.Ecotrans.Nucleo.Acciones.Donacion
-{
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
+
     public class ListarDonacionesResponse
     {
         public List<ListarDonacionesElemento> Elementos { get; set; }
@@ -32,5 +32,5 @@ namespace IESPenasNegras.Ecotrans.Nucleo.Acciones.Donacion
 
 
     }
-}
+
     
