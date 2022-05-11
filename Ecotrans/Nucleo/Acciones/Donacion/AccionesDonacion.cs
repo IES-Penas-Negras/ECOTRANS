@@ -20,6 +20,6 @@ public class AccionesDonacion
     
     public void Borrar(BorrarDonacionRequest borrarDonacionRequest)
     {
-
+        
     }
 }

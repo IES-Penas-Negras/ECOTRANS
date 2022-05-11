@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Listado de Objetos";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Peso</th>
+            <th>Dimensiones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var objeto in Objetos)
+        {
+            <tr>
+                <td>@Html.ActionLink(objeto.Nombre new { id= objeto.Id}, null)</td>
+                <td>@Html.ActionLink(objeto.Estado new { id= objeto.Id}, null)</td>
+                <td>@Html.ActionLink(objeto.Peso new { id= objeto.Id}, null)</td>
+                <td>@Html.ActionLink(objeto.Dimensiones new { id= objeto.Id}, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
