@@ -8,8 +8,8 @@ public class ObjetosController : Controller
 {
     public IActionResult Index()
     {
-        var objeto = new AccionesObjeto();
-        return View(objeto);
+       
+        return View();
         
     }
     
