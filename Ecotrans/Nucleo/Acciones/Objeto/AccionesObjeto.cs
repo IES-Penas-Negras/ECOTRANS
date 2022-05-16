@@ -8,15 +8,28 @@ using System.Threading.Tasks;
 using Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
-
-    public class AccionesObjeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
+{
+    public class AccionesObjeto : IDisposable
     {
         private readonly DonacionesContext contexto;
 
-        public AccionesObjeto()
+        public AccionesObjeto(DonacionesContext? donacionesContext=null)
         {
-            contexto = new DonacionesContext();
+            if (donacionesContext == null)
+            {
+                contexto = new DonacionesContext();
+            }
+            else
+            {
+                contexto = donacionesContext;
+            }
+            
+        }
+
+        public void Dispose ()
+        {
+            contexto.Dispose();
         }
 
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
