@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
-{
     public class EditarObjetoRequest
     {
         public int IdEdicion { get; set; }
@@ -16,4 +15,4 @@ namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
 		public decimal Profundidad { get; set; }
 		public decimal Peso { get; set; }
 	}
-}
+
