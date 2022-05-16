@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
- namespace IESPeñasNegras.Ecotrans.Nucleo.Donacion.CrearDonacionResponse;
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
 
     public class CrearDonacionResponse
     {
