@@ -14,7 +14,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
     {
         private readonly DonacionesContext contexto;
 
-        public AccionesObjeto(DonacionesContext? donacionesContext=null)
+        public AccionesObjeto(DonacionesContext? donacionesContext = null)
         {
             if (donacionesContext == null)
             {
@@ -24,32 +24,32 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
             {
                 contexto = donacionesContext;
             }
-            
+
         }
 
-        public void Dispose ()
+        public void Dispose()
         {
             contexto.Dispose();
         }
 
-        public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
+        public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest)
         {
             return new CrearObjetoResponse();
         }
-       
-        public EditarObjetoResponse Editar(EditarObjetoRequest editar) 
+
+        public EditarObjetoResponse Editar(EditarObjetoRequest editar)
         {
             EditarObjetoResponse response = new EditarObjetoResponse();
             return response;
         }
-        
-        public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest ) 
-        { 
-            return new ListarObjetoResponse(); 
-            
+
+        public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
+        {
+            return new ListarObjetoResponse();
+
         }
 
         public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
-
+}
