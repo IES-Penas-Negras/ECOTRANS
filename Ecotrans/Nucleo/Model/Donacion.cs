@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations;
 namespace IESPeniasNegras.Ecotrans.Nucleo.Model;
     public class Donacion
     {
+
+        public int Id { get; set; }
         public string Usuario { get; set; }
-       // public string Objeto { get; set; }
-        //public string Dirección { get; set; }
+    // public string Objeto { get; set; }
+        public int DireccionId { get; set; }
+        public virtual Direccion? Direccion { get; set; }
         [Required]
         [StringLength(400)]
         public string Titulo { get; set; }

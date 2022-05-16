@@ -14,6 +14,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 		public DbSet<Ciudad> Ciudades { get; set; }
 		public DbSet<Provincia> Provincias { get; set; }
 		public DbSet<Donacion> Donaciones { get; set; }
+		public DbSet<Direccion> Direcciones { get;set; }
+
 	}
 
 }
