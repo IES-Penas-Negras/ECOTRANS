@@ -1,0 +1,32 @@
+﻿@model List<Donacion>
+
+<h2>Listado de Donaciones</h2>
+@Html.ActionLink("Nueva Donacion", "Nuevo", "Donaciones", null, new { @class="btn btn-info" })
+@if (Model.Count == 0)
+{
+    <h3>UPPS .... Lo sentimos ,no hay ninguna donacion  registrada</h3>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>FechaInicio</th>
+                <th>FechaFinal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var donacion in Model)
+            {
+                <tr>
+                    <td>@donacion.Usuario</td>
+                    <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
+                    <td>@donacion.Titulo.Usuario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

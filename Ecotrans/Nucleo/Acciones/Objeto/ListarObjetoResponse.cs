@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
 public class ListarObjetoResponse
 {
     public List<ListaObjetoElemento> Elementos {get; set;}
@@ -18,6 +18,7 @@ public class ListaObjetoElemento
     [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
+	public TipoObjeto TipoObjeto { get; set; }
 	public int TipoObjetoId { get; set; }
 	public Estado Estado { get; set; }
 	public decimal Altura { get; set; }

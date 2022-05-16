@@ -1,14 +1,24 @@
-﻿using System;
+﻿
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using Ecotrans.Nucleo.BBDD;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
-{
-    internal class AccionesObjeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
+
+    public class AccionesObjeto
     {
+        private readonly DonacionesContext contexto;
+
+        public AccionesObjeto()
+        {
+            contexto = new DonacionesContext();
+        }
+
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
         {
             return new CrearObjetoResponse();
@@ -25,8 +35,8 @@ namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto
             return new ListarObjetoResponse(); 
             
         }
-        
-        public void Borrar() { }
+
+        public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
-}
+
