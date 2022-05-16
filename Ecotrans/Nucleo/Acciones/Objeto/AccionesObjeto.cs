@@ -8,13 +8,26 @@ using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
-    public class AccionesObjeto
+    public class AccionesObjeto : IDisposable
     {
         private readonly DonacionesContext contexto;
 
-        public AccionesObjeto()
+        public AccionesObjeto(DonacionesContext? donacionesContext=null)
         {
-            contexto = new DonacionesContext();
+            if (donacionesContext == null)
+            {
+                contexto = new DonacionesContext();
+            }
+            else
+            {
+                contexto = donacionesContext;
+            }
+            
+        }
+
+        public void Dispose ()
+        {
+            contexto.Dispose();
         }
 
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
