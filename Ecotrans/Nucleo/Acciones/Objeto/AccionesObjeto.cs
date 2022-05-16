@@ -24,8 +24,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
             return new ListarObjetoResponse(); 
             
         }
-        
-        public void Borrar() { }
+
+        public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
 }

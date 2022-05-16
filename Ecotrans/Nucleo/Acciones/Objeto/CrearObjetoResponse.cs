@@ -5,6 +5,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
 public class CrearObjetoResponse
 {
+	public int Id {get; set;}
     [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
