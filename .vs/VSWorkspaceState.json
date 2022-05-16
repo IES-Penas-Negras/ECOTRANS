@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Ecotrans",
-    "\\Ecotrans\\Nucleo",
-    "\\Ecotrans\\Nucleo\\Acciones",
-    "\\Ecotrans\\Nucleo\\Acciones\\Objeto",
-    "\\Ecotrans\\Nucleo\\BBDD",
-    "\\Ecotrans\\Nucleo\\Migrations",
-    "\\Ecotrans\\Nucleo\\Model"
+    ""
   ],
-  "SelectedNode": "\\Ecotrans\\Nucleo\\Model\\Objeto.cs",
+  "SelectedNode": "\\Ecotrans.sln",
   "PreviewInSolutionExplorer": false
 }
