@@ -14,13 +14,13 @@
     </thead>
 
     <tbody>
-        @foreach (var objeto in Objetos)
+        @foreach (var objeto in Model.Elementos)
         {
             <tr>
-                <td>@Html.ActionLink(objeto.Nombre new { id= objeto.Id}, null)</td>
-                <td>@Html.ActionLink(objeto.Estado new { id= objeto.Id}, null)</td>
-                <td>@Html.ActionLink(objeto.Peso new { id= objeto.Id}, null)</td>
-                <td>@Html.ActionLink(objeto.Dimensiones new { id= objeto.Id}, null)</td>
+                <td>@Html.ActionLink(objeto.Nombre, new { id= objeto.Id}, null)</td>
+                <td>@objeto.Estado</td>
+                <td>@objeto.Peso</td>
+                <td>@objeto.Dimensiones</td>
             </tr>
         }
     </tbody>
