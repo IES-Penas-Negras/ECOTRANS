@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace Ecotrans.Nucleo.BBDD
+namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 {
 	public class DonacionesContext : DbContext
 	{
