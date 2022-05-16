@@ -4,7 +4,7 @@
 using System;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesDonacion;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 public class AccionesDonacion
 {
     public void Crear(CrearDonacionRequest CrearDonacionResponse)
