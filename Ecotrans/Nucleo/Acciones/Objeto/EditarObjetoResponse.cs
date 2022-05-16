@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
     public class EditarObjetoResponse
     {

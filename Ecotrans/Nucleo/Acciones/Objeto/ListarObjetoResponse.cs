@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 public class ListarObjetoResponse
 {
     public List<ListaObjetoElemento> Elementos {get; set;}
