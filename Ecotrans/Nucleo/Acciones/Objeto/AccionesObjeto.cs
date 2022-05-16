@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,8 @@ using System.Threading.Tasks;
 using Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
-{
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
+
     public class AccionesObjeto
     {
         private readonly DonacionesContext contexto;
@@ -37,4 +39,4 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
         public void Borrar(BorrarObjetoRequest borrar) { }
 
     }
-}
+

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeñasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
 
 public class ListarObjetoRequest 
 {
