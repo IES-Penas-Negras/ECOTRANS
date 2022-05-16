@@ -14,4 +14,8 @@
     <Compile Include="Views\Donaciones\Index.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nucleo\Nucleo.csproj" />
+  </ItemGroup>
+
 </Project>
