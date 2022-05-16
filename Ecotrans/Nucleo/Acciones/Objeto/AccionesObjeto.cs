@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
-    internal class AccionesObjeto
+    public class AccionesObjeto
     {
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
         {
