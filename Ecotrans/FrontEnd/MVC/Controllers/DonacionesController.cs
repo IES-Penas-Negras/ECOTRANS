@@ -8,7 +8,7 @@ namespace IESPeniasNegras.Ecotrans.MVC.Controllers
         public IActionResult Index()
         {
             var donacion = new AccionesDonacion();
-            var elementos = donacion.Listar();
+            var elementos = donacion.Listar(new ListarDonacionResponse());
             return View(elementos);
         }
     }
