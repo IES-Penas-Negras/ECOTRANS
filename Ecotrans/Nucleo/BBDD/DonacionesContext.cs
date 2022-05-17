@@ -9,6 +9,7 @@ namespace Ecotrans.Nucleo.BBDD
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(ConnectionString);
 		public DbSet <Objeto> Objetos { get; set; }
+		public DbSet <Ciudad> Ciudades { get; set; }
 	}
 
 }
