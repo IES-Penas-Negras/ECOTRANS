@@ -26,12 +26,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
 
 
 
-        public DateTime? FechaFin { get; set; }
+        public DateTime? FechaFinal { get; set; }
         [StringLength(3000)]
         public string Descripcion { get; set; }
 
 
     }
 }
-
     
