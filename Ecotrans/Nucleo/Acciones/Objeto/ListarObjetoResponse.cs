@@ -25,4 +25,9 @@ public class ListaObjetoElemento
 	public decimal Anchura { get; set; }
 	public decimal Profundidad { get; set; }
 	public decimal Peso { get; set; }
+	public string GetDimensiones()
+	{
+		return Altura.ToString() + Anchura.ToString() + Profundidad.ToString();
+	}
+	
 }

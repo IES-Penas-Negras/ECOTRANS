@@ -1,3 +1,4 @@
+@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 @model ListarObjetoResponse
 @{
     ViewData["Title"] = "Listado de Objetos";
@@ -17,10 +18,10 @@
         @foreach (var objeto in Model.Elementos)
         {
             <tr>
-                <td>@Html.ActionLink(objeto.Nombre, new { id= objeto.Id}, null)</td>
+                <td>@Html.ActionLink(@objeto.Nombre,"Detalles", new { id= objeto.Id})</td>
                 <td>@objeto.Estado</td>
                 <td>@objeto.Peso</td>
-                <td>@objeto.Dimensiones</td>
+                <td>@objeto.GetDimensiones()</td>
             </tr>
         }
     </tbody>
