@@ -1,4 +1,5 @@
 using System;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Model;
 public class Direccion
 {
     public int Id {get; set;}

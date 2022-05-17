@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Model;
 
 public class Objeto
 {

@@ -1,3 +1,4 @@
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using System;
 using System.ComponentModel.DataAnnotations;
 
