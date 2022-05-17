@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace Ecotrans.Nucleo.BBDD
+namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 {
 	public class DonacionesContext : DbContext
 	{
@@ -9,6 +11,11 @@ namespace Ecotrans.Nucleo.BBDD
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(ConnectionString);
 		public DbSet <Objeto> Objetos { get; set; }
+		public DbSet<Ciudad> Ciudades { get; set; }
+		public DbSet<Provincia> Provincias { get; set; }
+		public DbSet<Donacion> Donaciones { get; set; }
+		public DbSet<Direccion> Direcciones { get;set; }
+
 	}
 
 }

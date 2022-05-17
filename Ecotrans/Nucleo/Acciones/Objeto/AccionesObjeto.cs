@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ecotrans.Nucleo.BBDD;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
+
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
@@ -57,3 +57,4 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
     }
 }
+

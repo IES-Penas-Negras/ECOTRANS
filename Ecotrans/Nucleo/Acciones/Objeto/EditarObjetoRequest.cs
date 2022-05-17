@@ -1,5 +1,7 @@
-﻿using System;
+﻿using IESPeniasNegras.Ecotrans.Nucleo.Model;
+using System;
 using System.ComponentModel.DataAnnotations;
+
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
     public class EditarObjetoRequest

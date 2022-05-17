@@ -1,3 +1,4 @@
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,7 +10,6 @@ public class CrearObjetoResponse
     [Required]
 	[StringLength(300)]
 	public string Nombre { get; set; }
-	public TipoObjeto TipoObjeto { get; set; }
 	public int TipoObjetoId { get; set; }
 	public Estado Estado { get; set; }
 	public decimal Altura { get; set; }
