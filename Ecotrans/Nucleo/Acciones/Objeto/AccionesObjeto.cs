@@ -13,8 +13,9 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
     public class AccionesObjeto : IDisposable
     {
         private readonly DonacionesContext contexto;
+        private readonly IMapper mapper;
 
-        public AccionesObjeto(DonacionesContext? donacionesContext = null)
+        public AccionesObjeto(DonacionesContext? donacionesContext = null, IMapper? mapper = null)
         {
             if (donacionesContext == null)
             {
@@ -25,6 +26,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
                 contexto = donacionesContext;
             }
 
+            this.mapper = mapper ?? new AutoMapper();
         }
 
         public void Dispose()
@@ -35,6 +37,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest)
         {
             return new CrearObjetoResponse();
+            var objeto = mapper.Map<Objeto>(crearObjetoRequest);
+            
         }
 
         public EditarObjetoResponse Editar(EditarObjetoRequest editar)
