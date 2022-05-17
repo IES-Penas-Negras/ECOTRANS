@@ -7,11 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nucleo", "Nucleo", "{ED32D1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleo", "Nucleo\Nucleo.csproj", "{A874315A-EB2D-4A75-8249-59249B147338}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BBDD", "BBDD", "{F332D4EB-5956-49D9-ACE0-B7F065E6032E}"
-	ProjectSection(SolutionItems) = preProject
-		DonacionesContext.cs = DonacionesContext.cs
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUnitarios", "Test\TestUnitarios\TestUnitarios.csproj", "{C3B56088-79A5-488C-BD1C-9617750AD831}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC", "FrontEnd\MVC\MVC.csproj", "{A9B95877-2744-4504-A322-B76DFCB6AD32}"
@@ -52,7 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A874315A-EB2D-4A75-8249-59249B147338} = {ED32D11F-3646-46E3-905E-462ED77BF589}
-		{F332D4EB-5956-49D9-ACE0-B7F065E6032E} = {ED32D11F-3646-46E3-905E-462ED77BF589}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F2FE2B-29C0-4209-9BBC-C31287450938}
