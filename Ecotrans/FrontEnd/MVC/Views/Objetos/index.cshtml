@@ -1,0 +1,28 @@
+@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+@model ListarObjetoResponse
+@{
+    ViewData["Title"] = "Listado de Objetos";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Peso</th>
+            <th>Dimensiones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var objeto in Model.Elementos)
+        {
+            <tr>
+                <td>@Html.ActionLink(@objeto.Nombre,"Detalles", new { id= objeto.Id})</td>
+                <td>@objeto.Estado</td>
+                <td>@objeto.Peso</td>
+                <td>@objeto.GetDimensiones()</td>
+            </tr>
+        }
+    </tbody>
+</table>
