@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Nucleo\Nucleo.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Nucleo\Nucleo.csproj" />
+    <ProjectReference Include="..\..\..\Nucleo\Nucleo.csproj" />
   </ItemGroup>
 
 </Project>

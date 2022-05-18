@@ -1,8 +1,9 @@
-﻿@model List<Donacion>
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+@model  ListarDonacionResponse
 
 <h2>Listado de Donaciones</h2>
 @Html.ActionLink("Nueva Donacion", "Nuevo", "Donaciones", null, new { @class="btn btn-info" })
-@if (Model.Count == 0)
+@if (Model.Elementos.Count == 0)
 {
     <h3>UPPS .... Lo sentimos ,no hay ninguna donacion  registrada</h3>
 }
@@ -19,12 +20,18 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach(var donacion in Model)
+            @foreach(var donacion in Model.Elementos)
             {
                 <tr>
                     <td>@donacion.Usuario</td>
                     <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
-                    <td>@donacion.Titulo.Usuario</td>
+                    <td>@donacion.Titulo</td>
+                    <td>@donacion.Usuario</td>
+                    <td>@donacion.Descripcion</td>
+                    <td>@donacion.FechaInicio</td>
+                    <td>@donacion.FechaFinal</td>
+
+
                 </tr>
             }
         </tbody>

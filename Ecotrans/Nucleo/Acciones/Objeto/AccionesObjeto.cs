@@ -5,29 +5,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
+using AutoMapper;
+using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.AccionesObjeto;
-
-    public class AccionesObjeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
+{
+    public class AccionesObjeto : IDisposable
     {
-        public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest) 
+        private readonly DonacionesContext contexto;
+        private readonly IMapper mapper;
+
+        public AccionesObjeto(DonacionesContext? donacionesContext = null, IMapper? mapper = null)
+        {
+            if (donacionesContext == null)
+            {
+                contexto = new DonacionesContext();
+            }
+            else
+            {
+                contexto = donacionesContext;
+            }
+
+            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<ObjetosProfile>()).CreateMapper();
+        }
+
+        public void Dispose()
+        {
+            contexto.Dispose();
+        }
+
+        public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest)
         {
             return new CrearObjetoResponse();
+            var crearObjeto = mapper.Map<Modelo.Objeto>(crearObjetoRequest);
         }
-       
-        public EditarObjetoResponse Editar(EditarObjetoRequest editar) 
+
+        public EditarObjetoResponse Editar(EditarObjetoRequest editar)
         {
             EditarObjetoResponse response = new EditarObjetoResponse();
             return response;
-        }
-        
-        public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest ) 
-        { 
-            return new ListarObjetoResponse(); 
-            
+            var editarObjeto = mapper.Map<Modelo.Objeto>(editar);
         }
 
-        public void Borrar(BorrarObjetoRequest borrar) { }
+        public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
+        {
+            return new ListarObjetoResponse();
+            var listarObjeto = mapper.Map<Modelo.Objeto>(listarObjetoRequest);
+
+        }
+
+        public void Borrar(BorrarObjetoRequest borrar) 
+        {
+            var borrarObjeto = mapper.Map<Modelo.Objeto>(borrar);
+        }
 
     }
+}
 
