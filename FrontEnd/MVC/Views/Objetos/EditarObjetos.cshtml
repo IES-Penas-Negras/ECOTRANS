@@ -1,0 +1,54 @@
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+@model EditarObjetoRequest;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using (Html.BeginForm("Edit", "Objeto"))
+{
+     @Html.HiddenFor(o => o.IdEdicion)
+
+    <div class="form-group">
+        @Html.LabelFor(o => o.Nombre)
+        @Html.TextBoxFor(o => o.Nombre, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.Nombre, "Este campo es requerido")
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(o => o.TipoObjeto)
+        @Html.TextBoxFor(o => o.TipoObjeto, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.TipoObjeto)
+    </div>
+
+      <div class="form-group">
+        @Html.LabelFor(o => o.Estado)
+        @Html.DropDownListFor(o => o.Estado, new SelectList(Enum.GetValues(typeof(Estado))), "Selecciona el estado", new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Estado)
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(m => m.Altura)
+        @Html.TextBoxFor(m => m.Altura, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.Altura)
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(m => m.Anchura)
+        @Html.TextBoxFor(m => m.Anchura, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.Anchura)
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(m => m.Profundidad)
+        @Html.TextBoxFor(m => m.Profundidad, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.Profundidad)
+    </div>
+
+     <div class="form-group">
+        @Html.LabelFor(o => o.Peso)
+        @Html.TextBoxFor(o => o.Peso, new { @class = "form-control"})
+        @Html.ValidationMessageFor(o => o.Peso)
+    </div>
+}
+
