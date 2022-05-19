@@ -1,4 +1,4 @@
-namespace IESPeniasNegras.Ecotrans.TestUnitarios
+namespace IESPeniasNegras.Ecotrans.Test
 {
 	public class DonacionesTestContext : DonacionesContext
 	{		
