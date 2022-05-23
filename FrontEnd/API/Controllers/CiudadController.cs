@@ -4,10 +4,16 @@ namespace API.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
+        [HttpPost]
+        
+        
+        [HttpGet]
 
-            return View();
-        }
+       
+        [HttpDelete]
+        
+        
+        [HttpPut]
+
     }
 }
