@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 {
-	public class DonacionesContext : DbContext
+	public class DonacionesContext : IdentityDbContext
 	{
 		public string ConnectionString = "Server=Localhost;Database=Ecotrans;Trusted_Connection=True;";
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -15,7 +16,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 		public DbSet<Provincia> Provincias { get; set; }
 		public DbSet<Donacion> Donaciones { get; set; }
 		public DbSet<Direccion> Direcciones { get;set; }
-
+        public DbSet<Usuario> Usuarios { get; set; }
 	}
 
 }
