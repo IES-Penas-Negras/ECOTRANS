@@ -37,22 +37,21 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
         public CrearObjetoResponse Crear(CrearObjetoRequest crearObjetoRequest)
         {
-            return new CrearObjetoResponse();
             var crearObjeto = mapper.Map<Modelo.Objeto>(crearObjetoRequest);
+            return new CrearObjetoResponse();
         }
 
         public EditarObjetoResponse Editar(EditarObjetoRequest editar)
         {
             EditarObjetoResponse response = new EditarObjetoResponse();
-            return response;
             var editarObjeto = mapper.Map<Modelo.Objeto>(editar);
+            return response;
         }
 
         public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
         {
-            return new ListarObjetoResponse();
             var listarObjeto = mapper.Map<Modelo.Objeto>(listarObjetoRequest);
-
+            return new ListarObjetoResponse();
         }
 
         public void Borrar(BorrarObjetoRequest borrar) 
