@@ -10,7 +10,17 @@
       "ProjectGuid": "a874315a-eb2d-4a75-8249-59249b147338",
       "DisplayName": "Nucleo",
       "ColorIndex": 1
+    },
+    "40e85c00-0292-402b-8974-ed70b31a8efa": {
+      "ProjectGuid": "40e85c00-0292-402b-8974-ed70b31a8efa",
+      "DisplayName": "MVC",
+      "ColorIndex": 2
+    },
+    "060d3b82-9b1d-47ff-b63b-cfa34fe33b85": {
+      "ProjectGuid": "060d3b82-9b1d-47ff-b63b-cfa34fe33b85",
+      "DisplayName": "Nucleo",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }
