@@ -32,6 +32,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 
         public void Listar()
         {
+
         }
         public void Crear()
         { 
