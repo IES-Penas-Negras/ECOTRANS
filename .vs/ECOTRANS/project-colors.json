@@ -10,7 +10,12 @@
       "ProjectGuid": "a874315a-eb2d-4a75-8249-59249b147338",
       "DisplayName": "Nucleo",
       "ColorIndex": 1
+    },
+    "a5b98a54-8cee-4eba-9ae4-044388ddb878": {
+      "ProjectGuid": "a5b98a54-8cee-4eba-9ae4-044388ddb878",
+      "DisplayName": "API",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

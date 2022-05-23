@@ -12,6 +12,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
     {
 
         private readonly DonacionesContext contexto;
+        private readonly IMapper mapper;
+
         public AccionesCiudades(DonacionesContext? donacionesContext = null)
         {
             if(donacionesContext == null)
@@ -22,6 +24,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
             {
                 contexto = donacionesContext;
             }
+            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<ObjetosProfile>()).CreateMapper();
+
         }
 
         public void Dispose()
@@ -29,23 +33,31 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
             contexto.Dispose();
         }
 
-        public void Listar()
+        public ListarCiudadResponse Listar(ListarCiudadRequest listarCiudadRequest)
         {
+            var listarCiudad = mapper.Map<Modelo.Ciudad>(listarCiudadRequest);
+            return new ListarCiudadResponse();
         }
-        public void Crear()
+
+
+        public CrearCiudadResponse Crear(CrearCiudadRequest crearCiudadRequest)
         { 
+            var crearCiudad = mapper.Map<Modelo.Ciudad>(crearCiudadRequest);
+            return new CiudadResponse();
         }
 
       
 
-        public void Editar()
+        public EditarCiudadResponse Editar(EditarCiudadRequest editarCiudadRequest)
         {
-
+            EditarCiudadResponse response = new EditarCiudadResponse();
+            var editarCiudad = mapper.Map<Modelo.Ciudad>(editarCiudadRequest);
+            return response;
         }
 
-        public void Borrar()
+        public void Borrar(BorrarCiudadRequest borrar)
         {
-
+            var borrarCiudad = mapper.Map<Modelo.Ciudad>(borrar);
         }
     }
 }

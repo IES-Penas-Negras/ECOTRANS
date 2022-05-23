@@ -7,7 +7,8 @@ using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 {
-    internal class AccionCiudadResponse
+    public class CrearCiudadResponse
     {
+
     }
 }
