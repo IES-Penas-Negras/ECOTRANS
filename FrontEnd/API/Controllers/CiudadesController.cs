@@ -1,14 +1,39 @@
 ﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CiudadésController : ControllerBase
+    [Authorize]
+    public class CiudadesController : ControllerBase
 
 
     {
+
+
+        //Interfaz
+        public class Ciudad : IEquatable<Ciudad>
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+
+
+            public bool Equals(Ciudad? ciudad)
+            {
+                return (this.Ciudad);
+            }
+
+        }
+
+
+
+        
+
+
+
+
         public IEnumerable<object> Listar()
 
         {
@@ -17,7 +42,14 @@ namespace API.Controllers
                 return accionesCiudad.Listar();
             }
 
+
+
+
+
         }
+
+
+
 
         [HttpDelete]
         public ActionResult Eliminar(int Ciudad)
@@ -26,31 +58,42 @@ namespace API.Controllers
             {
                 return accionesCiudad.Borrar();
             }
-                
+
+
         }
 
-        [HttpPost]
-        public ActionResult Crear(int Ciudad)
+        //Polimorfismo
+        public class Crear
         {
-
-            using (var accionesCiudad = new AccionesCiudades())
+            [HttpPost]
+            public ActionResult Crear(int Ciudad)
             {
-                return accionesCiudad.Crear();
-            }
-               
-            
-        }
-        [HttpPut]
-        public ActionResult  Actualizar(int Ciudad)
 
+                using (var accionesCiudad = new AccionesCiudades())
+                {
+                    return accionesCiudad.Crear();
+                }
+
+
+            }
+        }
+
+        public class Actualizar : Crear
         {
-            using (var accionesCiudad = new AccionesCiudades())
+            [HttpPut]
+            public ActionResult Actualizar(int Ciudad)
+
             {
-                return accionesCiudad.Editar();
+                using (var accionesCiudad = new AccionesCiudades())
+                {
+                    return accionesCiudad.Editar();
+                }
+
+
             }
-                
-           
         }
+
+         
 
 
 
@@ -60,13 +103,13 @@ namespace API.Controllers
 
 
 
-   
-
-
-
 
 
 }
+
+    
+
+
 
 
 
