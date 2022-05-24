@@ -1,16 +1,11 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "68e6d94d-c817-4e9c-a3db-6bd8ab529b5b": {
-      "ProjectGuid": "68e6d94d-c817-4e9c-a3db-6bd8ab529b5b",
-      "DisplayName": "API",
+    "01932a49-188f-45c2-993c-a4116a4edc04": {
+      "ProjectGuid": "01932a49-188f-45c2-993c-a4116a4edc04",
+      "DisplayName": "TestUnitarios",
       "ColorIndex": 0
-    },
-    "a874315a-eb2d-4a75-8249-59249b147338": {
-      "ProjectGuid": "a874315a-eb2d-4a75-8249-59249b147338",
-      "DisplayName": "Nucleo",
-      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 1
 }
