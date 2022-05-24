@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FrontEnd",
+    "\\FrontEnd\\API",
+    "\\FrontEnd\\API\\Controllers",
+    "\\FrontEnd\\MVC",
+    "\\FrontEnd\\MVC\\Controllers",
+    "\\Nucleo",
+    "\\Nucleo\\Acciones",
+    "\\Nucleo\\Acciones\\Ciudades",
+    "\\Nucleo\\Acciones\\Provincias"
   ],
-  "SelectedNode": "\\Ecotrans.sln",
+  "SelectedNode": "\\FrontEnd\\API\\Controllers\\DonacionesController.cs",
   "PreviewInSolutionExplorer": false
 }
