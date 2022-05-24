@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 public class ListarObjetoResponse
 {
-    public List<ListaObjetoElemento> Elementos {get; set;}
+    public List<ListarObjetoElemento> Elementos {get; set;}
 
 }
 
-public class ListaObjetoElemento
+public class ListarObjetoElemento
 {
 	public int Id { get; set; }
     [Required]

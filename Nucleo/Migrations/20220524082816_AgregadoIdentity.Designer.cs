@@ -4,6 +4,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Nucleo.Migrations
 {
     [DbContext(typeof(DonacionesContext))]
-    partial class DonacionesContextModelSnapshot : ModelSnapshot
+    [Migration("20220524082816_AgregadoIdentity")]
+    partial class AgregadoIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

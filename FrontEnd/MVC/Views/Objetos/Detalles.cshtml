@@ -1,0 +1,49 @@
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+@model ListarObjetoElemento
+
+@{
+    ViewData["Title"] = "Detalles objeto";
+}
+<h1>Detalles objeto</h1>
+    <table>
+        <tr> Id
+            <td>@Html.DisplayNameFor(m => m.Id)</td>
+            <td>@Model.Id </td>
+
+        </tr>
+        <tr> Nombre
+            <td>@Html.DisplayNameFor(m => m.Nombre)</td>
+            <td>@Model.Nombre </td>
+
+        </tr>
+        <tr> TipoObjetoId
+            <td>@Html.DisplayNameFor(m => m.TipoObjetoId)</td>
+            <td>@Model.TipoObjetoId </td>
+
+        </tr>
+        <tr> Estado
+            <td>@Html.DisplayNameFor(m => m.Estado)</td>
+            <td>@Model.Estado </td>
+
+        </tr>
+        <tr> Altura
+            <td>@Html.DisplayNameFor(m => m.Altura)</td>
+            <td>@Model.Altura </td>
+
+        </tr>
+        <tr> Anchura
+            <td>@Html.DisplayNameFor(m => m.Anchura)</td>
+            <td>@Model.Anchura </td>
+
+        </tr>
+        <tr> Profundidad
+            <td>@Html.DisplayNameFor(m => m.Profundidad)</td>
+            <td>@Model.Profundidad </td>
+
+        </tr>
+        <tr> Peso
+            <td>@Html.DisplayNameFor(m => m.Peso)</td>
+            <td>@Model.Peso </td>
+
+        </tr>
+    </table>
