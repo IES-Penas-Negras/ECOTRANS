@@ -36,6 +36,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
         {
             var crearDireccion = mapper.Map<Modelo.Direccion>(crearDireccionRequest);
 
+            //añadir registro a la base de datos y guardarlos
             contexto.Direcciones.Add(crearDireccion);
             contexto.SaveChanges();
 
@@ -44,41 +45,43 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
 
         public EditarDireccionResponse Editar(EditarDireccionRequest editarDireccionRequest)
         {
-            var editarDireccion = mapper.Map<Modelo.Direccion>(editarDireccionRequest);
 
-            if (editarDireccion == null)
-                contexto.Direcciones.Add(editarDireccion);
+            //Single devuelve el elemento que cumple con la condición
+            var editarDireccion = contexto.Direcciones.Single(d => d.Id == editarDireccionRequest.IdEdicion);
 
-            else
+            if (editarDireccion != null)
             {
-                var direccion = contexto.Direcciones.Single(d => d.Id == editarDireccion.Id);
-                
-                direccion.ProvinciaId = editarDireccion.ProvinciaId;
-                direccion.CiudadId = editarDireccion.CiudadId;
-                direccion.Direccion1 = editarDireccion.Direccion1;
-                direccion.Direccion2 = editarDireccion.Direccion2;
-                direccion.CodigoPostal = editarDireccion.CodigoPostal;
+                mapper.Map(editarDireccionRequest, editarDireccion);
 
+                // se puede hacer a través del automapper en una sola linea, (origen, destino)
+
+                /*editarDireccion.ProvinciaId = editarDireccionRequest.ProvinciaId;
+                editarDireccion.CiudadId = editarDireccionRequest.CiudadId;
+                editarDireccion.Direccion1 = editarDireccionRequest.Direccion1;
+                editarDireccion.Direccion2 = editarDireccionRequest.Direccion2;
+                editarDireccion.CodigoPostal = editarDireccionRequest.CodigoPostal;*/
+                
                 contexto.SaveChanges();
             }
 
             return mapper.Map<EditarDireccionResponse>(editarDireccion);
         }
 
-        public ListarDireccionResponse Listar(ListarDireccionRequest listarDireccionRequest, int id)
+        public ListarDireccionResponse Listar(ListarDireccionRequest listarDireccionRequest)
         {
-            var listarDireccion = mapper.Map<Modelo.Direccion>(listarDireccionRequest);
+            var direcciones = contexto.Direcciones
+               .Where(d => d.Id = id)
+               .ProjectTo<ListarDireccionRequest>() 
+               .ToList();
+            //var direcciones = contexto.Direcciones.Where()
 
-            contexto.Direcciones.SingleOrDefault(d => d.Id == id);
-
-            return mapper.Map<ListarDireccionResponse>(listarDireccion);
+            return mapper.Map<ListarDireccionResponse>(direcciones);
         }
 
         public void Borrar(BorrarDireccionRequest borrarDireccionRequest)
         {
-            var borrarDireccion = mapper.Map<Modelo.Direccion>(borrarDireccionRequest);
-
-            contexto.Direcciones.Single(d => d.Id == borrarDireccion.Id);
+            // buscar el elemento por id, borrarlo y guardar los cambios
+            var borrarDireccion = contexto.Direcciones.Single(d => d.Id == borrarDireccionRequest.Id);
             contexto.Direcciones.Remove(borrarDireccion);
             contexto.SaveChanges();
         }
