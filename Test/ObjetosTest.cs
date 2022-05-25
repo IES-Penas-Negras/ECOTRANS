@@ -1,41 +1,39 @@
 using Xunit;
+using System.Linq;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
-using IESPeniasNegras.Ecotrans.Nhcleo.Acciones.Donacion;
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
+using IESPeniasNegras.Ecotrans;
+
 public class ObjetosTest
 {
-    public ObjetosTest()//punto 2
+    private readonly DonacionesTestContext contexto;
+    private readonly AccionesObjeto accionesObjeto;
+    public ObjetosTest()
     {
-        public AccionesObjeto contextoDonaciones(DonacionesContext? donacionesContext = null, IMapper? mapper = null)
+        contexto = new DonacionesTestContext();         
+        accionesObjeto = new AccionesObjeto(contexto); 
+    }
+    [Fact]
+    public void Debe_Crear_Una_Donacion()
+    {
+        //Given
+        var donacion = new Donacion()
         {
-            if (donacionesContext == null)
-            {
-                contexto = new DonacionesContext();
-            }
-            else
-            {
-                contexto = donacionesContext;
-            }
-        }
-        var objetoTipoAcciones = new AccionesObjeto(contexto);//punto 3
+            Nombre = "Silla",
+            FechaInicio = "25/05/2022",
+            FechaFin = "30/06/2022",
+            Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
+        };
+        //When
+        var peticionDonacion = new CrearDonacionRequest()
+        {
+            Nombre = donacion.Nombre,
+            FechaInicio = donacion.FechaInicio,
+            FechaFin = donacion.FechaFin,
+            Descripcion = donacion.Descripcion
+        };
     }
-
-    public void Debe_Crear_Un_Objeto_Al_Llamar_A_La_Accion_Crear(CrearDonacionRequest CrearDonacionResponse)
-    {
-
-    }
-    public ListarDonacionResponse Debe_Editar_Un_Objeto_Al_Llamar_A_La_Accion_Editar(ListarDonacionResponse listarDonacionResponse)
-    {
-        return new ListarDonacionResponse();
-    }
-    public EditarDonacionResponse Debe_Listar_Un_Objeto_Al_Llamar_A_La_Accion_Listar(EditarDonacionRequest editar)
-    {
-        EditarDonacionResponse response = new EditarDonacionResponse();
-            return response;
-    }
-    public void Debe_Borrar_Un_Objeto_Al_Llamar_A_La_Accion_Borrar(BorrarDonacionRequest borrarDonacionRequest)
-    {
-
-    }
-
 }
+

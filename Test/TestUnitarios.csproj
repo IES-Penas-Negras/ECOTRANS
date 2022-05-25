@@ -20,6 +20,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <ItemGroup>
-      <ProjectReference Include="..\..\Nucleo\Nucleo.csproj" />
+      <ProjectReference Include="..\Nucleo\Nucleo.csproj" />
     </ItemGroup>
 </Project>
