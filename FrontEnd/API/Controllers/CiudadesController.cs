@@ -1,63 +1,59 @@
 ﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace API.Controllers
+namespace IESPeniasNegras.Ecotrans.API.Controllers
 {
+   [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     [Authorize]
     public class CiudadesController : ControllerBase
 
 
     {
+        [HttpGet("{id}")]
+        //[Authorize(Roles =NombreRol....)]
 
-
-        //Interfaz
-        public class Ciudad : IEquatable<Ciudad>
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-
-
-            public bool Equals(Ciudad? ciudad)
-            {
-                return (this.Ciudad);
-            }
-
-        }
-
-
-
-        
-
-
-
-
-        public IEnumerable<object> Listar()
+        public IEnumerable<ListarCiudadRequest> Listar(string? buscar)
 
         {
             using (var accionesCiudad = new AccionesCiudades())
             {
-                return accionesCiudad.Listar();
+                return accionesCiudad.Listar(ListarCiudadRequest);
             }
 
-
-
-
-
+            if (Ciudad == null)
+            {
+                return (IEnumerable<ListarCiudadRequest>)NoContent();
+            }
         }
 
 
 
 
-        [HttpDelete]
-        public ActionResult Eliminar(int Ciudad)
+        [HttpDelete("{id}")]
+        //[Authorize(Roles =NombreRol....)]
+
+        public ActionResult<CrearCiudadResponse> Eliminar([FromBody] AccionesCiudades accionesciudadPost)
+
         {
+
             using (var accionesCiudad = new AccionesCiudades())
             {
-                return accionesCiudad.Borrar();
+
+                return accionesCiudad.Borrar(BorrarCiudadRequest);
+
             }
+            if (Ciudad == null)
+            {
+                return NoContent();
+                return Ok();
+
+            }
+
+
 
 
         }
@@ -65,47 +61,73 @@ namespace API.Controllers
         //Polimorfismo
         public class Crear
         {
-            [HttpPost]
-            public ActionResult Crear(int Ciudad)
+
+
+            [HttpPost("{id}")]
+            //[Authorize(Roles =NombreRol....)]
+            public ActionResult<CrearCiudadResponse> Post([FromBody] AccionesCiudades accionesciudadPost)
             {
 
                 using (var accionesCiudad = new AccionesCiudades())
                 {
-                    return accionesCiudad.Crear();
+                    return accionesCiudad.Crear(CrearCiudadRequest);
+
+                   //// if (!ModelState.IsValid)
+                   // {
+                   //     return BadHttpRequestException();
+                   // }
+
                 }
 
 
             }
-        }
 
-        public class Actualizar : Crear
-        {
-            [HttpPut]
-            public ActionResult Actualizar(int Ciudad)
-
+            public class Actualizar : Crear
             {
-                using (var accionesCiudad = new AccionesCiudades())
+                
+                [HttpPut("{id}")]
+                //[Authorize(Roles =NombreRol....)]
+                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPost)
+
+
                 {
-                    return accionesCiudad.Editar();
+                   
+                        
+                    using (var accionesCiudad = new AccionesCiudades())
+                    {
+                        return accionesCiudad.Editar(EditarCiudadRequest);
+
+                        if (accionesCiudad.Editar == null)
+                        {
+                            return NoContentResult();
+
+                        }
+                    }
+
+
                 }
 
-
+                private ActionResult<EditarCiudadResponse> NoContentResult()
+                {
+                    throw new NotImplementedException();
+                }
             }
+
+
+
+
+
+
         }
-
-         
-
-
-
-
-
     }
 
-
-
-
-
 }
+
+
+
+
+
+
 
     
 
