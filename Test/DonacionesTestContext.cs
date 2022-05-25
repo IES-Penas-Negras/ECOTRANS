@@ -1,3 +1,6 @@
+using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
+using Microsoft.EntityFrameworkCore;
+
 namespace IESPeniasNegras.Ecotrans.Test
 {
 	public class DonacionesTestContext : DonacionesContext
