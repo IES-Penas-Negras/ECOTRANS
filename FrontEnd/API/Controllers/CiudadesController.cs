@@ -36,7 +36,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         [HttpDelete("{id}")]
         //[Authorize(Roles =NombreRol....)]
 
-        public ActionResult<CrearCiudadResponse> Eliminar([FromBody] AccionesCiudades accionesciudadPost)
+        public ActionResult<CrearCiudadResponse> Eliminar([FromBody] AccionesCiudades accionesciudadEliminar)
 
         {
 
@@ -72,10 +72,10 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
                 {
                     return accionesCiudad.Crear(CrearCiudadRequest);
 
-                   //// if (!ModelState.IsValid)
-                   // {
-                   //     return BadHttpRequestException();
-                   // }
+                    //if (ModelState.IsValid)
+                    //{
+                    //    return BadHttpRequestException();
+                    //}
 
                 }
 
@@ -87,7 +87,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
                 
                 [HttpPut("{id}")]
                 //[Authorize(Roles =NombreRol....)]
-                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPost)
+                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPutt)
 
 
                 {
