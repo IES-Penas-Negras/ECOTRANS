@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using IESPeniasNegras;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
@@ -13,11 +14,13 @@ using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 //Si no detecta las referencias al Nucleo hay que ir a /FrontEnd/API/Dependencias/Proyectos, hacer click derecho sobre 
 //la carpeta de proyectos y hacer referencia a lo que no detecte (por lo general el Nucleo)
 
-namespace API.Controllers
+namespace IESPeniasNegras.Ecotrans.API.Controllers
 {
     
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+    
     public class ObjetosController : ControllerBase
     {
         private readonly AccionesObjeto accionesObjeto;
@@ -47,8 +50,9 @@ namespace API.Controllers
         //}
         
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<CrearObjetoResponse> Post([FromBody] AccionesObjeto accionesObjetoPost)
         {
+            return Ok();
         }
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
