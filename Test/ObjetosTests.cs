@@ -86,7 +86,7 @@ public class ObjetosTest
     }
 
     [Fact]
-    public void NO_Debe_Listar_Un_Objeto_Existente_Cuando_No_Esta_En_La_Buusqueda()
+    public void NO_Debe_Listar_Un_Objeto_Existente_Cuando_No_Esta_En_La_Busqueda()
     {
         // Given
         var tipoObjeto= new TipoObjeto()
@@ -125,7 +125,7 @@ public class ObjetosTest
             Nombre= "Mueble"
         };
 
-        var objeto = new Objeto()
+        var primerobjeto = new Objeto()
         {
             Nombre= "Mesa",
             TipoObjeto= tipoObjeto,
@@ -136,7 +136,7 @@ public class ObjetosTest
             Peso=2
         };
 
-        var objeto1 = new Objeto()
+        var segundoobjeto = new Objeto()
         {
             Nombre= "Silla",
             TipoObjeto= tipoObjeto,
@@ -146,7 +146,7 @@ public class ObjetosTest
             Profundidad=60,
             Peso=2
         };
-        contexto.Objetos.Add(objeto);
+        contexto.Objetos.Add(primerobjeto);
         contexto.SaveChanges();
         // When
         var peticion= new ListarObjetoRequest()
@@ -155,7 +155,8 @@ public class ObjetosTest
         };
         var respuesta= accionesObjeto.Listar(peticion);
         // Then
-        Assert.Empty(respuesta.Elementos);
+        Assert.NotEmpty(respuesta.Elementos);
+        Assert.True(respuesta.Elementos.Select(e => e.Nombre).Contains(segundoobjeto.Nombre));
     }
 
     [Fact]
