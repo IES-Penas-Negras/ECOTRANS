@@ -32,7 +32,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         [HttpGet]
         public ListarObjetoResponse Get(string? buscar)
         {
-            var listarRequest = new ListarObjetoRequest();
+            var listarRequest = new ListarObjetoRequest(buscar);
             return accionesObjeto.Listar(listarRequest);
 
         }
@@ -50,18 +50,29 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         //}
         
         [HttpPost]
-        public ActionResult<CrearObjetoResponse> Post([FromBody] AccionesObjeto accionesObjetoPost)
+        public ActionResult<CrearObjetoResponse> CrearObjeto ([FromBody] CrearObjetoRequest objeto)
         {
-            return Ok();
+            if (!ModelState.IsValid)
+                return BadRequest(objeto);
+            var creacionObjeto = accionesObjeto.Crear(objeto);
+            return Created(Request.Path.Value + creacionObjeto.Id, creacionObjeto);
         }
+
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<EditarObjetoResponse> EditarObjeto(int id, [FromBody] EditarObjetoRequest objeto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(objeto);
+            var editarObjeto = accionesObjeto.Editar(objeto);
+            return Ok(objeto);
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult BorrarObjeto(int id)
         {
+            var objeto = new BorrarObjetoRequest(id);
+            accionesObjeto.Borrar(objeto);
+            return Ok();
         }
     }
 }
