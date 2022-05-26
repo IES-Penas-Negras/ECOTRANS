@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudad;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
 public class ListarCiudadResponse
 {
-	public List<ListarCiudadElemento> Elementos { get; set; }
+	//TODO CREAR LA CLASE LISTAR CIUDAD ELEMENTO
+    //public List<ListarCiudadElemento> Elementos { get; set; }
     [Required]
     [StringLength(300)]
     public string NombreCiudad { get; set; }

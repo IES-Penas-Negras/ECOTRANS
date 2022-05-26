@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
+using AutoMapper;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 {
@@ -24,7 +25,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
             {
                 contexto = donacionesContext;
             }
-            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<ObjetosProfile>()).CreateMapper();
+            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<CiudadesProfile>()).CreateMapper();
 
         }
 

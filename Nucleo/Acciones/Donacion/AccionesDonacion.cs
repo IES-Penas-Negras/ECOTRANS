@@ -8,7 +8,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
 
 public class AccionesDonacion : IDisposable
@@ -36,7 +36,7 @@ public class AccionesDonacion : IDisposable
         }
 
 
-    public CrearDonacionResponse Crear(CrearDonacionRequest CrearDonacionResponse)
+    public CrearDonacionResponse Crear(CrearDonacionRequest crearDonacionRequest)
     {
         var crearDonacion = mapper.Map<Modelo.Donacion>(crearDonacionRequest);
         return new CrearDonacionResponse();
@@ -49,7 +49,7 @@ public class AccionesDonacion : IDisposable
         return response;
     }
      
-    public ListarDonacionResponse Listar(ListarDonacionResponse listarDonacionResponse)
+    public ListarDonacionResponse Listar(ListarDonacionRequest listarDonacionRequest)
     {
         var listarDonacion = mapper.Map<Modelo.Donacion>(listarDonacionRequest);
         return new ListarDonacionResponse();
