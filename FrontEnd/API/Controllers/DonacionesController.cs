@@ -8,7 +8,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donaciones;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
 namespace IESPeniasNegras.Ecotrans.API.Controllers
 {
