@@ -87,7 +87,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
                 
                 [HttpPut("{id}")]
                 //[Authorize(Roles =NombreRol....)]
-                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPutt)
+                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPut)
 
 
                 {
