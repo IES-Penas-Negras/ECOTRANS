@@ -1,8 +1,18 @@
 using System.Reflection;
+using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
+using IESPeniasNegras.Ecotrans.Nucleo.Model;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<DonacionesContext>(options =>
+    options.UseSqlServer(connectionString));
+
+
+builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<DonacionesContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
