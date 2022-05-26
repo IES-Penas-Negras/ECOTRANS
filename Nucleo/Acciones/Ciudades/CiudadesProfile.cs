@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudad
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 {
     public class CiudadesProfile : Profile
     {

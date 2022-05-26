@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudad;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
     public class CrearCiudadResponse
     {
