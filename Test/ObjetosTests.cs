@@ -221,10 +221,7 @@ public class ObjetosTest
         contexto.Objetos.Add(objeto);
         contexto.SaveChanges();
         // When
-        var peticion= new BorrarObjetoRequest()
-        {
-            Id= objeto.Id
-        };
+        var peticion = new BorrarObjetoRequest(objeto.Id);
          accionesObjeto.Borrar(peticion);
         // Then
         var objetoDB= contexto.Objetos.SingleOrDefault(o => o.Id==objeto.Id);

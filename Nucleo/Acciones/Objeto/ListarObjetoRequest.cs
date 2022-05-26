@@ -8,7 +8,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 
 public class ListarObjetoRequest 
 {
-    public ListarObjetoRequest(string? buscar) 
+    public ListarObjetoRequest(string? buscar = null) 
     {
         Buscar = buscar;
     }
