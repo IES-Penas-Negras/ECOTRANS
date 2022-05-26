@@ -11,8 +11,13 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincia;
 public class ListarProvinciaResponse
 {
 	public List<ListarProvinciaElemento> Elementos { get; set; }
+}
+
+public class ListarProvinciaElemento
+{
+	public int Id { get; set; }
 	[Required]
 	[StringLength(300)]
-	public string NombreProvincia { get; set; }
-	public int TipoObjetoId { get; set; }
+	public string Nombre { get; set; }
 }
+
