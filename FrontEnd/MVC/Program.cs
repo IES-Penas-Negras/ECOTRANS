@@ -1,4 +1,6 @@
 using System.Reflection;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,9 @@ builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireCo
     .AddEntityFrameworkStores<DonacionesContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services.AddTransient<AccionesDonacion>();
+builder.Services.AddTransient<AccionesObjeto>();
 
 var app = builder.Build();
 
