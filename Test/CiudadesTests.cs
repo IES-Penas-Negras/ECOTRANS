@@ -1,12 +1,9 @@
 using System;
-using 
 
 namespace IESPeniasNegras.Ecotrans.Test;
 
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Test.Ciudades
-{
-    public class AccionesCiudades : IDisposable
+    public class CiudadesTests : IDisposable
     {
 
         private readonly DonacionesContext contexto;
@@ -34,7 +31,6 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Test.Ciudades
         { 
         }
 
-      
 
         public void Editar()
         {
@@ -46,4 +42,4 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Test.Ciudades
 
         }
     }
-}
+
