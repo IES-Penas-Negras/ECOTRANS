@@ -8,6 +8,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
 {
     public class BorrarDonacionRequest
     {
+        public BorrarDonacionRequest(int id)
+        {
+            Id = id;
+        }
+
         public int Id { get; set; }
     }
 }

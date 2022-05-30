@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
@@ -48,7 +49,12 @@ public class AccionesDonacion : IDisposable
         var editarDonacion = mapper.Map<Modelo.Donacion>(editar);
         return response;
     }
-     
+
+    public ActionResult<CrearDonacionResponse> Post(AccionesDonacion accionesDonacionPost)
+    {
+        throw new NotImplementedException();
+    }
+
     public ListarDonacionResponse Listar(ListarDonacionRequest listarDonacionRequest)
     {
         var listarDonacion = mapper.Map<Modelo.Donacion>(listarDonacionRequest);
