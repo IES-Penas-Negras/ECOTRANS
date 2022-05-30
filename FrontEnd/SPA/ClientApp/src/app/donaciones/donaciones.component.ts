@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class DonacionesComponent {
   public donaciones: ListarDonacionElemento[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<ListarDonacionResponse>(baseUrl + 'donaciones').subscribe(result => {
+  constructor(http: HttpClient, @Inject('API_URL') apiUrl: string) {
+    http.get<ListarDonacionResponse>(apiUrl + 'donaciones').subscribe(result => {
       this.donaciones = result.elementos;
     }, error => console.error(error));
   }
