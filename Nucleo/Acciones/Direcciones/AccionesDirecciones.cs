@@ -72,7 +72,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
         {
             var direcciones = contexto.Direcciones
                .Where(d => string.IsNullOrEmpty(listarDireccionRequest.Buscar) || d.Direccion1.Contains(listarDireccionRequest.Buscar))
-               .ProjectTo<ListarDireccionRequest>(mapper.ConfigurationProvider) 
+               .ProjectTo<ListarDireccionElemento>(mapper.ConfigurationProvider) 
                .ToList();
 
             return new ListarDireccionResponse();
