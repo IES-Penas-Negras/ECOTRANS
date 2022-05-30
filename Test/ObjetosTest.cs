@@ -48,8 +48,17 @@ public class ObjetosTest
         //Given
         var donacion = new Donacion()
         {
-            
+            Titulo = "Estandar"
         };
+        var editarDonacion = new Donacion()
+        {
+            Titulo = "",
+            /*FechaInicio = "25/05/2022",
+            FechaFin = "30/06/2022",*/
+            Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
+        };
+        //When
+        
     }
 
 }
