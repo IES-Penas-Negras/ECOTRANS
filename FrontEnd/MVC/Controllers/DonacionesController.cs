@@ -5,10 +5,16 @@ namespace IESPeniasNegras.Ecotrans.MVC.Controllers
 {
     public class DonacionesController : Controller
     {
-        public IActionResult Index()
+        public AccionesDonacion AccionesDonacion { get; set; }
+
+        public DonacionesController(AccionesDonacion AccionesDonacion)
         {
-            var donacion = new AccionesDonacion();
-            var elementos = donacion.Listar(new ListarDonacionResponse());
+            this.AccionesDonacion = AccionesDonacion;
+        }
+
+        public IActionResult Index(string? buscar = null)
+        {
+            var elementos = AccionesDonacion.Listar(new ListarDonacionRequest(buscar));
             return View(elementos);
         }
     }
