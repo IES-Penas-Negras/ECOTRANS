@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -70,12 +71,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
         public ListarDireccionResponse Listar(ListarDireccionRequest listarDireccionRequest)
         {
             var direcciones = contexto.Direcciones
-               .Where(d => d.Id = id)
-               .ProjectTo<ListarDireccionRequest>() 
+               .Where(d => string.IsNullOrEmpty(listarDireccionRequest.Buscar) || d.Direccion1.Contains(listarDireccionRequest.Buscar))
+               .ProjectTo<ListarDireccionRequest>(mapper.ConfigurationProvider) 
                .ToList();
-            //var direcciones = contexto.Direcciones.Where()
 
-            return mapper.Map<ListarDireccionResponse>(direcciones);
+            return new ListarDireccionResponse();
         }
 
         public void Borrar(BorrarDireccionRequest borrarDireccionRequest)
