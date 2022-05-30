@@ -9,11 +9,7 @@ public class ObjetosController : Controller
     public IActionResult Index(string? buscar = null)
     {
         var objeto = new AccionesObjeto();
-        var request = new ListarObjetoRequest()
-        {
-            Buscar = buscar
-        };
-       
+        var request = new ListarObjetoRequest(buscar);
         return View(objeto.Listar(request));  
 
     }

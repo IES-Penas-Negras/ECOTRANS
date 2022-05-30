@@ -1,0 +1,15 @@
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincia
+@model  ListarProvinciaResponse
+
+<h2>Listado de Provincias</h2>
+@Html.ActionLink("Nueva Provincia", "Nueva", "Provincias", null, new { @class="btn btn-info" })
+@if (Model.Elementos.Count == 0)
+{
+    <h3>UPPS .... Lo sentimos ,no hay ninguna provincia  registrada</h3>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        
+    </table>
+}

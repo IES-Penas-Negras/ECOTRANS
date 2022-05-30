@@ -1,0 +1,15 @@
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudad
+@model  ListarCiudadResponse
+
+<h2>Listado de Ciudades</h2>
+@Html.ActionLink("Nueva Ciudad", "Nueva", "Ciudades", null, new { @class="btn btn-info" })
+@if (Model.Elementos.Count == 0)
+{
+    <h3>UPPS .... Lo sentimos ,no hay ninguna ciudad  registrada</h3>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+       
+    </table>
+}
