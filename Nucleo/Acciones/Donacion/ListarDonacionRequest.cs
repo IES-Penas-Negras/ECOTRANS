@@ -9,5 +9,6 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
     public class ListarDonacionRequest
     {
         public string? Request { get; set; }
-    }
+    public string Buscar { get; set; }
+}
 

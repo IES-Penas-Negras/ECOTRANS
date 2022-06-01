@@ -1,7 +1,6 @@
 using Xunit;
 using System;
 using System.Linq;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using IESPeniasNegras.Ecotrans.Test;
@@ -10,6 +9,7 @@ public class DonacionesTest
 {
     private readonly DonacionesTestContext contexto;
     private readonly AccionesDonacion accionesDonacion;
+    DateTime DateTime(string v) => throw new NotImplementedException();
     public DonacionesTest()
     {
         contexto = new DonacionesTestContext();         
@@ -18,12 +18,13 @@ public class DonacionesTest
     [Fact]
     public void Debe_Crear_Una_Donacion(AccionesDonacion accionesDonacion)
     {
+        
         //Given
         var donacion = new Donacion()
         {
             Titulo = "",
-            /*FechaInicio = "25/05/2022",
-            FechaFin = "30/06/2022",*/
+            FechaInicio = DateTime("25/05/2022"),
+            FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         //When
@@ -34,8 +35,8 @@ public class DonacionesTest
             FechaFin = donacion.FechaFin,
             Descripcion = donacion.Descripcion
         };
-        var peticion = new ListarDonacionRequest();
-        var respuestaDonacion = new AccionesDonacion.Crear(peticion);
+        var peticion = new CrearDonacionRequest();
+        var respuestaDonacion = accionesDonacion.Crear(peticion);
         
         //Then
         Assert.Equal(respuestaDonacion.Titulo, donacion.Titulo);
@@ -50,8 +51,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "",
-            /*FechaInicio = ,
-            FechaFin = ,*/
+            FechaInicio = DateTime("25/05/2022"),
+            FechaFin = DateTime("30/06/2022"),
              Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
@@ -70,14 +71,14 @@ public class DonacionesTest
         var editarDonacion = new Donacion()
         {
             Titulo = "",
-            /*FechaInicio = "25/05/2022",
-            FechaFin = "30/06/2022",*/
+            FechaInicio = DateTime("25/05/2022"),
+            FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         
         //When
         var peticion = new ListarDonacionRequest();
-        var respuestaDonacion = AccionesDonacion.Listar(peticion);
+        var respuestaDonacion = accionesDonacion.Listar(peticion);
         //Then
         Assert.NotEmpty(respuestaDonacion.Elementos);
     }
@@ -88,19 +89,19 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "",
-            /*FechaInicio = "25/05/2022",
-            FechaFin = "30/06/2022",*/
+            FechaInicio = DateTime("25/05/2022"),
+            FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
         contexto.SaveChanges();
         //When
         
-        var peticion= new ListarObjetoRequest()
+        var peticion= new ListarDonacionRequest()
         {
             Buscar= "Silla"
         };
-        var respuesta= AccionesDonacion.Listar(peticion);
+        var respuesta = accionesDonacion.Listar(peticion);
         // Then
         Assert.Empty(respuesta.Elementos);
         
@@ -110,8 +111,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "",
-            /*FechaInicio = "25/05/2022",
-            FechaFin = "30/06/2022",*/
+            FechaInicio = DateTime("25/05/2022"),
+            FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
@@ -145,7 +146,7 @@ public class DonacionesTest
 
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
-        DateTime DateTime(string v) => throw new NotImplementedException();
+        
         
         contexto.Donaciones.Add(donacion);
         contexto.SaveChanges();

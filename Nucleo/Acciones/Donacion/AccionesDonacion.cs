@@ -7,12 +7,17 @@ using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 public class AccionesDonacion
 {
-    public void Crear(CrearDonacionRequest CrearDonacionResponse)
-    {}
-     
-    public ListarDonacionResponse Listar(ListarDonacionResponse listarDonacionResponse)
+    public CrearDonacionResponse Crear(CrearDonacionRequest crearDonacionRequest)
     {
-        return new ListarDonacionResponse();
+        CrearDonacionResponse response = new CrearDonacionResponse();
+            return response;
+    }
+     
+    public ListarDonacionResponse Listar(ListarDonacionRequest listarDonacionRequest)
+    {
+        ListarDonacionResponse response = new ListarDonacionResponse();
+            return response;
+
     }
 
     public EditarDonacionResponse Editar(EditarDonacionRequest editar)
