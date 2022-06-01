@@ -6,11 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincia;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias;
 
 public class ListarProvinciaResponse
 {
-	public List<ListarProvinciaElemento> Elementos { get; set; }
+    public ListarProvinciaResponse(List<ListarProvinciaElemento> provincias)
+    {
+        Elementos = provincias;
+    }
+
+    public List<ListarProvinciaElemento> Elementos { get; set; }
 }
 
 public class ListarProvinciaElemento
