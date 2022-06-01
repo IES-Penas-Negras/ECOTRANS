@@ -29,18 +29,18 @@ public class ProvinciasTextContext
 
     //class ImplementationClass : Provincias
     //{
-        
+
     //    void Provincias.AccionesProvincias()
     //    {
-            
+
     //    }
 
     //    static void Main()
     //    {
-            
+
     //        Provincias obj = new AccionesProvincias();
 
-           
+
     //        obj.AccionesProvincias();
     //    }
 
@@ -60,14 +60,14 @@ public class ProvinciasTextContext
 
 
     [Fact]
-    
-   
+
+
 
     public void Debe_Listar_Una_Provincia()
     {
         var Provincia = new Provincia()
         {
-           Nombre = "Ciudad Real"
+            Nombre = "Ciudad Real"
         };
 
         contexto.SaveChanges();
@@ -75,7 +75,7 @@ public class ProvinciasTextContext
         var peticion = new ListarProvinciaRequest();
         var respuesta = accionesProvincias.Listar(peticion);
         //Then 
-        Assert.NotEmpty(respuesta)
+        Assert.NotEmpty(respuesta);
 
 
 
@@ -100,7 +100,7 @@ public class ProvinciasTextContext
         // When
         var peticion = new ListarProvinciaRequest()
         {
-           
+           Nombre = "Toledo"
         };
         var respuesta = accionesProvincia.Listar(peticion);
         // Then
