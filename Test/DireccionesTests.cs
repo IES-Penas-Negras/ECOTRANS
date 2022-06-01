@@ -54,6 +54,67 @@ public class DireccionesTests
         Assert.Equal(respuesta.Direccion2, direccion.Direccion2);
         Assert.Equal(respuesta.CodigoPostal, direccion.CodigoPostal);
     }
+    [Fact]
+    public void Debe_Listar_Una_Direccion_Existente()
+    {
+        //Dado (G i v e n)
+        var provincia = new Provincia()
+        {
+            Nombre = "Zamora"
+        };
+        var ciudad = new Ciudad()
+        {
+            Nombre = "ZamoraCity"
+        };
+        var direccion = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleFalsa123",
+            Direccion2 = "CalleVerdadera456",
+            CodigoPostal = 45400,
+        };
+        contexto.Direcciones.Add(direccion);
+        contexto.SaveChanges();
+        //Cuando (W h e n)
+        var peticion = new ListarDireccionRequest();
+        var respuesta = accionesDirecciones.Listar(peticion);
+        //Entonces (T h e n)
+        Assert.NotEmpty(respuesta.Elementos);
+    }
+    [Fact]
+    public void No_Debe_Listar_Una_Direccion_Existente_Cuando_No_Esta_En_La_Lista()
+    {
+        //Dado (G i v e n)
+        var provincia = new Provincia()
+        {
+            Nombre = "Zamora"
+        };
+        var ciudad = new Ciudad()
+        {
+            Nombre = "ZamoraCity"
+        };
+        var direccion = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleFalsa123",
+            Direccion2 = "CalleVerdadera456",
+            CodigoPostal = 45400,
+        };
+        contexto.Direcciones.Add(direccion);
+        contexto.SaveChanges();
+        //Cuando (W h e n)
+        var peticion = new ListarDireccionRequest()
+        {
+            Buscar = "Muniesa"
+        };
+        var respuesta = accionesDirecciones.Listar(peticion);
+        //Entonces (T h e n)
+        Assert.Empty(respuesta.Elementos);
+
+
+    }
 }
 
 
