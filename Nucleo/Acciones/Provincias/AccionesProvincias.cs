@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincia;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias
 
@@ -50,7 +51,10 @@ public class AccionesProvincias
         return mapper.Map<CrearProvinciaResponse>(crearProvincia);
     }
 
-
+    public object Listar(ListarProvinciaRequest peticion)
+    {
+        throw new NotImplementedException();
+    }
 
     public EditarProvinciaResponse Editar(EditarProvinciaRequest editarProvinciaRequest)
     {
