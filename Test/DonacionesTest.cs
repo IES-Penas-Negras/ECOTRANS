@@ -22,7 +22,7 @@ public class DonacionesTest
         //Given
         var donacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
@@ -50,7 +50,7 @@ public class DonacionesTest
         //Given
         var donacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/2022"),
              Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
@@ -70,7 +70,7 @@ public class DonacionesTest
         //Given
         var editarDonacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
@@ -88,7 +88,7 @@ public class DonacionesTest
         //Given
         var donacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
@@ -110,7 +110,7 @@ public class DonacionesTest
     {
         var donacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/2022"),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
@@ -140,7 +140,7 @@ public class DonacionesTest
         //Given
         var donacion = new Donacion()
         {
-            Titulo = "",
+            Titulo = "Silla en muy buen estado",
             FechaInicio = DateTime("25/05/2022"),
             FechaFin = DateTime("30/06/200"),
 
