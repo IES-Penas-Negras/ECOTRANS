@@ -112,7 +112,46 @@ public class DireccionesTests
         var respuesta = accionesDirecciones.Listar(peticion);
         //Entonces (T h e n)
         Assert.Empty(respuesta.Elementos);
-
+    }
+    [Fact]
+    public void Debe_Listar_Filtrando_Dos_Elementos()
+    {
+        //Dado (G i v e n)
+        var provincia = new Provincia()
+        {
+            Nombre = "Zamora"
+        };
+        var ciudad = new Ciudad()
+        {
+            Nombre = "ZamoraCity"
+        };
+        var direccion1 = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleFalsa123",
+            Direccion2 = "CalleVerdadera456",
+            CodigoPostal = 45400,
+        };
+        var direccion2 = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleObjetivismo2",
+            Direccion2 = "CalleEmpirismo14",
+            CodigoPostal = 45500,
+        };
+        contexto.Direcciones.Add(direccion1);
+        contexto.SaveChanges();
+        //Cuando (W h e n)
+        var peticion = new ListarDireccionRequest()
+        {
+            Buscar = "CalleObjetivismo2"
+        };
+        var respuesta = accionesDirecciones.Listar(peticion);
+        //entonces (T h e n)
+        Assert.NotEmpty(respuesta.Elementos);
+        Assert.True(respuesta.Elementos.Select(e => e.ProvinciaId).Contains(direccion2.ProvinciaId));
 
     }
 }
