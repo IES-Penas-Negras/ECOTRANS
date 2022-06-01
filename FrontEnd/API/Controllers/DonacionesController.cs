@@ -31,21 +31,29 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
             return accionesDonacion.Listar(listarRequest);
         }
 
-       
-
         [HttpPost]
+        public ActionResult<CrearDonacionResponse> CrearDonacion ([FromBody] CrearDonacionRequest donacion)
         public ActionResult<CrearDonacionResponse> Crear([FromBody] CrearDonacionRequest donacion)
         {
             if (!ModelState.IsValid)
                 return BadRequest(donacion);
             var creacionDonacion = accionesDonacion.Crear(donacion);
+            return Created(Request.Path.Value + creacionDonacion.Id, creacionDonacion);
+            if (!ModelState.IsValid)
+                return BadRequest(donacion);
+            var creacionDonacion = accionesDonacion.Crear(donacion);
              return Created(Request.Path.Value + creacionDonacion.Id, creacionDonacion);
         }
-
+       
 
         [HttpPut("{id}")]
+        public ActionResult<EditarDonacionResponse> EditarDonacion(int id, [FromBody] EditarDonacionRequest donacion)
         public ActionResult<EditarDonacionResponse> Editar (int id, [FromBody] EditarDonacionRequest donacion)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(donacion);
+            var editarDonacion = accionesDonacion.Editar(donacion);
+            return Ok(donacion);
              if (!ModelState.IsValid) 
                 return BadRequest(donacion);
             var editarDonacion = accionesDonacion.Editar(donacion);
@@ -53,6 +61,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        public ActionResult BorrarDonacion(int id)
         public ActionResult Borrar(int id)
         {
             var donacion = new BorrarDonacionRequest(id);
