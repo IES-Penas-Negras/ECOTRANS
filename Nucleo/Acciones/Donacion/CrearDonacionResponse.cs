@@ -9,6 +9,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
     public class CrearDonacionResponse
     {
+      public int Id {get; set;}
       [Required]
       [StringLength(400)]
       public string Titulo { get; set; }
