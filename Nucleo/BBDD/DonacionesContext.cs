@@ -8,15 +8,17 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 {
 	public class DonacionesContext : IdentityDbContext<Usuario, Rol, int>
 	{
+		public DonacionesContext()
+			: base()
+		{
+
+		}
+
 		public DonacionesContext(DbContextOptions<DonacionesContext> options)
             : base(options)
         {
         }
-		public DonacionesContext()
-			:base()
-		{
-			
-		}
+		
 		public string ConnectionString = "Server=Localhost;Database=Ecotrans;Trusted_Connection=True;";
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(ConnectionString);
