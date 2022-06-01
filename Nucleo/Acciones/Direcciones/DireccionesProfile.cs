@@ -13,13 +13,13 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
         public DireccionesProfile()
         {
             CreateMap<CrearDireccionRequest, Modelo.Direccion>();
-            CreateMap<Modelo.Objeto, CrearDireccionResponse>();
+            CreateMap<Modelo.Direccion, CrearDireccionResponse>();
 
-            CreateMap<EditarCiudadRequest, Modelo.Direccion>();
-            CreateMap<Modelo.Objeto, EditarCiudadResponse>();
+            CreateMap<EditarDireccionRequest, Modelo.Direccion>();
+            CreateMap<Modelo.Direccion, EditarDireccionResponse>();
 
-            CreateMap<ListarCiudadRequest, Modelo.Direccion>();
-            CreateMap<Modelo.Objeto, ListarCiudadResponse>();
+            CreateMap<ListarDireccionRequest, Modelo.Direccion>();
+            CreateMap<Modelo.Direccion, ListarDireccionElemento>();
 
             CreateMap<BorrarDireccionRequest, Modelo.Direccion>();
         }
