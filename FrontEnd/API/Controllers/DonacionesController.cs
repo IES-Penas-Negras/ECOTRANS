@@ -27,27 +27,35 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         [HttpGet("{id}")]
         public ListarDonacionResponse Get(string? buscar)
         {
-            var listarRequest = new ListarDonacionRequest();
+            var listarRequest = new ListarDonacionRequest(buscar);
             return accionesDonacion.Listar(listarRequest);
         }
 
+        [HttpPost]
+        public ActionResult<CrearDonacionResponse> CrearDonacion ([FromBody] CrearDonacionRequest donacion)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(donacion);
+            var creacionDonacion = accionesDonacion.Crear(donacion);
+            return Created(Request.Path.Value + creacionDonacion.Id, creacionDonacion);
+        }
        
 
-        [HttpPost]
-        public ActionResult<CrearDonacionResponse> Post([FromBody] AccionesDonacion accionesDonacionPost)
-        {
-            return accionesDonacion.Post(accionesDonacionPost);
-        }
-
-
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<EditarDonacionResponse> EditarDonacion(int id, [FromBody] EditarDonacionRequest donacion)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(donacion);
+            var editarDonacion = accionesDonacion.Editar(donacion);
+            return Ok(donacion);
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult BorrarDonacion(int id)
         {
+            var donacion = new BorrarDonacionRequest(id);
+            accionesDonacion.Borrar(donacion);
+            return Ok();
         }
     }
 }
