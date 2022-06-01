@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias;
+using AutoMapper;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincia;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias;
 
 public class AccionesProvincias
 {
