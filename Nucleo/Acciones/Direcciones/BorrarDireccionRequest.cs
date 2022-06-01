@@ -8,6 +8,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
 {
     public class BorrarDireccionRequest
     {
+        public BorrarDireccionRequest(int id)
+        {
+            Id = id;
+        }
+
         public int Id { get; set; }
     }
 }

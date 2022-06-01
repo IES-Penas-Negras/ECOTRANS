@@ -8,6 +8,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
 {
     public class ListarDireccionRequest
     {
+        public ListarDireccionRequest(string? buscar)
+        {
+            Buscar = buscar;
+        }
+
         public string? Buscar { get; set; }
     }
 }
