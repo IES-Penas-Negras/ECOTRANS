@@ -1,10 +1,13 @@
-﻿using System;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
+using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 {
@@ -14,7 +17,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
         private readonly DonacionesContext contexto;
         private readonly IMapper mapper;
 
-        public AccionesCiudades(DonacionesContext? donacionesContext = null)
+        public AccionesCiudades(DonacionesContext? donacionesContext = null, IMapper? mapper = null)
         {
             if(donacionesContext == null)
             {
@@ -24,7 +27,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
             {
                 contexto = donacionesContext;
             }
-            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<ObjetosProfile>()).CreateMapper();
+            this.mapper = mapper ?? new MapperConfiguration(cfg => cfg.AddProfile<CiudadesProfile>()).CreateMapper();
 
         }
 
@@ -35,7 +38,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 
         public ListarCiudadResponse Listar(ListarCiudadRequest listarCiudadRequest)
         {
-            var listarCiudad = mapper.Map<Modelo.Ciudad>(listarCiudadRequest);
+            var ciudades = contexto.Ciudades;
+               .Where(d => string.IsNullOrEmpty(listarCiudadRequest.Buscar) || d.Ciudad.Contains(listarCiudadRequest.Buscar))
+               .ProjectTo<ListarCiudadElemento>(mapper.ConfigurationProvider)
+               .ToList();
+
             return new ListarCiudadResponse();
         }
 
@@ -43,21 +50,31 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
         public CrearCiudadResponse Crear(CrearCiudadRequest crearCiudadRequest)
         { 
             var crearCiudad = mapper.Map<Modelo.Ciudad>(crearCiudadRequest);
-            return new CiudadResponse();
+            contexto.Ciudades.Add(crearCiudad);
+            contexto.SaveChanges();
+
+            return mapper.Map<CrearCiudadResponse>(crearCiudad);
         }
 
       
 
         public EditarCiudadResponse Editar(EditarCiudadRequest editarCiudadRequest)
         {
-            EditarCiudadResponse response = new EditarCiudadResponse();
-            var editarCiudad = mapper.Map<Modelo.Ciudad>(editarCiudadRequest);
-            return response;
+            var editarCiudad = contexto.Ciudades.Single(d => d.Id == editarCiudadRequest.IdEdicion);
+
+            if (editarCiudad != null)
+            {
+                mapper.Map(editarCiudadRequest, editarCiudad);
+                contexto.SaveChanges();
+            }
+            return mapper.Map<EditarCiudadResponse>(editarCiudad);
         }
 
-        public void Borrar(BorrarCiudadRequest borrar)
+        public void Borrar(BorrarCiudadRequest borrarCiudadRequest)
         {
-            var borrarCiudad = mapper.Map<Modelo.Ciudad>(borrar);
+            var borrarCiudad = contexto.Ciudades.Single(d => d.Id == borrarCiudadRequest.Id);
+            contexto.Ciudades.Remove(borrarCiudad);
+            contexto.SaveChanges();
         }
     }
 }
