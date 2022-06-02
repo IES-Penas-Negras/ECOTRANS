@@ -13,6 +13,16 @@ public class ObjetosController : Controller
         this.AccionesObjeto = AccionesObjeto;
     }
 
+    public IActionResult Detalles(string? buscar = null)
+    {
+        return View();
+    }
+
+    public IActionResult Detalles(string? buscar = null)
+    {
+        return View();
+    }
+
     public IActionResult Index(string? buscar = null)
     {
         var elementos = AccionesObjeto.Listar(new ListarObjetoRequest(buscar));
