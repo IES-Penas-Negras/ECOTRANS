@@ -8,5 +8,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
 {
     public class ListarTipoObjetoRequest
     {
+        public string? Buscar { get; set; }
+
     }
 }
