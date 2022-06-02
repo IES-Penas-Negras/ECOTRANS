@@ -8,5 +8,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
 {
     public class BorrarTipoObjetoRequest
     {
+        public int Id { get; set; }
+
     }
 }
