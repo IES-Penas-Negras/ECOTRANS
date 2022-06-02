@@ -154,6 +154,76 @@ public class DireccionesTests
         Assert.True(respuesta.Elementos.Select(e => e.ProvinciaId).Contains(direccion2.ProvinciaId));
 
     }
+    [Fact]
+    public void Debe_Editar_Una_Dirección_Existente()
+    {
+        //Dado (G i v e n)
+        var provincia = new Provincia()
+        {
+            Nombre = "Zamora"
+        };
+        var ciudad = new Ciudad()
+        {
+            Nombre = "ZamoraCity"
+        };
+        var direccion = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleFalsa123",
+            Direccion2 = "CalleVerdadera456",
+            CodigoPostal = 45400,
+        };
+        contexto.Direcciones.Add(direccion);
+        contexto.SaveChanges();
+        //Cuando (W h e n)
+        var peticion = new EditarDireccionRequest()
+        {
+            IdEdicion = direccion.Id,
+            ProvinciaId = direccion.ProvinciaId,
+            CiudadId = direccion.CiudadId,
+            Direccion1 = direccion.Direccion1,
+            Direccion2 = direccion.Direccion2,
+            CodigoPostal = direccion.CodigoPostal,
+        };
+        var respuesta = accionesDirecciones.Editar(peticion);
+        //Entonces (T h e n)
+        Assert.Equal(respuesta.Id, direccion.Id);
+        Assert.Equal(respuesta.ProvinciaId, direccion.ProvinciaId);
+        Assert.Equal(respuesta.CiudadId, direccion.CiudadId);
+        Assert.Equal(respuesta.Direccion1, direccion.Direccion1);
+        Assert.Equal(respuesta.Direccion2, direccion.Direccion2);
+        Assert.Equal(respuesta.CodigoPostal, direccion.CodigoPostal);
+    }
+    [Fact]
+    public void Debe_Borrar_Una_Direccion_Existente()
+    {
+        //Dado (G i v e n)
+        var provincia = new Provincia()
+        {
+            Nombre = "Zamora"
+        };
+        var ciudad = new Ciudad()
+        {
+            Nombre = "ZamoraCity"
+        };
+        var direccion = new Direccion()
+        {
+            Provincia = provincia,
+            Ciudad = ciudad,
+            Direccion1 = "CalleFalsa123",
+            Direccion2 = "CalleVerdadera456",
+            CodigoPostal = 45400,
+        };
+        contexto.Direcciones.Add(direccion);
+        contexto.SaveChanges();
+        //Cuando (W h e n)
+        var peticion = new BorrarDireccionRequest();
+        accionesDirecciones.Borrar(peticion);
+        //Entonces (T h e n)
+        var direccionDB = contexto.Direcciones.SingleOrDefault(d => d.Id == direccion.Id);
+        Assert.Null(direccionDB);
+    }
 }
 
 
