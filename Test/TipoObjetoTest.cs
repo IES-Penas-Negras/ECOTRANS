@@ -26,7 +26,7 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             // ARRANGE
             var crearTipoObjeto = new TipoObjeto()
             {
-                Nombre = "Bicicleta"
+                Nombre = "Vehículo"
             };
             // ACT
             var peticion = new CrearTipoObjetoRequest()
@@ -37,26 +37,27 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             // ASSERT
             Assert.Equal(respuesta.Nombre, crearTipoObjeto.Nombre);
         }
-        [Fact]
+       [Fact]
         public void Debe_Editar_Tipo_Objeto_Existente()
         {
             // ARRANGE
             var editarTipoObjeto = new TipoObjeto()
             {
-                Nombre = "Bicicleta"
+                Nombre = "Vehículo"
             };
+            // añadir a la base de datos(DbSet?)
             // ACT
             var peticion = new EditarTipoObjetoRequest()
             {
                 IdEdicion = editarTipoObjeto.Id,
-                Nombre = editarTipoObjeto.Nombre 
+                Nombre = "Electrodoméstico"
             };
             var respuesta = accionesTipoObjetoObjeto.Editar(peticion);
             // ASSERT
+            Assert.NotEqual(respuesta.Nombre, editarTipoObjeto.Nombre);
             Assert.Equal(respuesta.Id, editarTipoObjeto.Id);
-            Assert.Equal(respuesta.Nombre, editarTipoObjeto.Nombre);
         }
-        [Fact]
+        /*[Fact]
         public void Debe_Listar_Tipo_Objeto_Existente()
         {
             // ARRANGE
@@ -86,6 +87,6 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             accionesTipoObjetoObjeto.Borrar(peticion);
             // ASSERT
             
-        }
+        }*/
     }
 }
