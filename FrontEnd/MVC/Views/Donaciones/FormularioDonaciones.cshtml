@@ -1,0 +1,31 @@
+@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+@model FormularioDonaciones;
+
+@{
+    ViewData["Title"] = "Formulario Donaciones";
+}
+@using (Html.BeginForm("Edit", "Donaciones"))
+{
+     @Html.HiddenFor(d => d.IdEdicion)
+
+    <div class="form-group">
+        @Html.LabelFor(d => d.Titulo, "Titulo para la donación")
+        @Html.TextBoxFor(d => d.Titulo, new { @class = "form-control"})
+        @Html.ValidationMessageFor(d => d.Titulo, "Este campo es requerido")
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(d => d.FechaInicio, "Fecha de inicio")
+        @*Html.TextBoxFor(d => d.FechaInicio, new { @class = "form-control"})*@
+        @Html.ValidationMessageFor(d => d.FechaInicio, "Este campo es requerido")
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(d => d.FechaFin, "Fecha de inicio")
+        @Html.TextBoxFor(d => d.FechaFin, new { @class = "form-control"})
+        @*Html.ValidationMessageFor(d => d.FechaFin, "Este campo es requerido")*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(d => d.Descripcion, "Descripción de la donación")
+        @*Html.TextBoxFor(d => d.Descripcion, new { @class = "form-control"})*@
+        @Html.ValidationMessageFor(d => d.Descripcion, "Este campo es requerido")
+    </div>
+}
