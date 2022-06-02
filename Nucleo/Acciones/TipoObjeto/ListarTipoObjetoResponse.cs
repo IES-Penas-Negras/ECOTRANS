@@ -8,5 +8,12 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
 {
     public class ListarTipoObjetoResponse
     {
+        public List<ListarTipoObjetoElemento> Elementos { get; set; }
+
+    }
+    public class ListarTipoObjetoElemento
+    {
+        public string Nombre { get; set; }
+        public int Id { get; set; }
     }
 }
