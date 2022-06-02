@@ -184,7 +184,7 @@ public class DireccionesTests
             CiudadId = direccion.CiudadId,
             Direccion1 = direccion.Direccion1,
             Direccion2 = direccion.Direccion2,
-            CodigoPostal = direccion.CodigoPostal,
+            CodigoPostal = 64500,
         };
         var respuesta = accionesDirecciones.Editar(peticion);
         //Entonces (T h e n)
@@ -193,7 +193,7 @@ public class DireccionesTests
         Assert.Equal(respuesta.CiudadId, direccion.CiudadId);
         Assert.Equal(respuesta.Direccion1, direccion.Direccion1);
         Assert.Equal(respuesta.Direccion2, direccion.Direccion2);
-        Assert.Equal(respuesta.CodigoPostal, direccion.CodigoPostal);
+        Assert.Equal(respuesta.CodigoPostal, 64500);
     }
     [Fact]
     public void Debe_Borrar_Una_Direccion_Existente()
@@ -218,7 +218,7 @@ public class DireccionesTests
         contexto.Direcciones.Add(direccion);
         contexto.SaveChanges();
         //Cuando (W h e n)
-        var peticion = new BorrarDireccionRequest();
+        var peticion = new BorrarDireccionRequest(direccion.Id);
         accionesDirecciones.Borrar(peticion);
         //Entonces (T h e n)
         var direccionDB = contexto.Direcciones.SingleOrDefault(d => d.Id == direccion.Id);
