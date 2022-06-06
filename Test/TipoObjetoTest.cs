@@ -13,11 +13,11 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
     public class TipoObjetoTest
     {
         private readonly DonacionesTestContext contexto;
-        private readonly AccionesTipoObjeto accionesTipoObjetoObjeto;
+        private readonly AccionesTipoObjeto accionesTipoObjeto;
         public TipoObjetoTest()
         {
             contexto = new DonacionesTestContext();
-            accionesTipoObjetoObjeto = new AccionesTipoObjeto(contexto); 
+            accionesTipoObjeto = new AccionesTipoObjeto(contexto); 
         }
 
         [Fact]
@@ -28,12 +28,14 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             {
                 Nombre = "Vehículo"
             };
+
             // ACT
             var peticion = new CrearTipoObjetoRequest()
             {
                 Nombre = crearTipoObjeto.Nombre 
             };
-            var respuesta = accionesTipoObjetoObjeto.Crear(peticion);
+            var respuesta = accionesTipoObjeto.Crear(peticion);
+
             // ASSERT
             Assert.Equal(respuesta.Nombre, crearTipoObjeto.Nombre);
         }
@@ -45,19 +47,22 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             {
                 Nombre = "Vehículo"
             };
-            // añadir a la base de datos(DbSet?)
+            contexto.TiposObjetos.Add(editarTipoObjeto);
+            contexto.SaveChanges();
+
             // ACT
             var peticion = new EditarTipoObjetoRequest()
             {
                 IdEdicion = editarTipoObjeto.Id,
                 Nombre = "Electrodoméstico"
             };
-            var respuesta = accionesTipoObjetoObjeto.Editar(peticion);
+            var respuesta = accionesTipoObjeto.Editar(peticion);
+
             // ASSERT
             Assert.NotEqual(respuesta.Nombre, editarTipoObjeto.Nombre);
             Assert.Equal(respuesta.Id, editarTipoObjeto.Id);
         }
-        /*[Fact]
+        [Fact]
         public void Debe_Listar_Tipo_Objeto_Existente()
         {
             // ARRANGE
@@ -65,10 +70,12 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             {
                 Nombre = "Bicicleta"
             };
+            contexto.TiposObjetos.Add(listarTipoObjeto);
+            contexto.SaveChanges();
 
             // ACT
             var peticion = new ListarTipoObjetoRequest();
-            var respuesta = accionesTipoObjetoObjeto.Listar(peticion);
+            var respuesta = accionesTipoObjeto.Listar(peticion);
 
             // ASSERT
             Assert.NotEmpty(respuesta.Elementos);
@@ -80,13 +87,39 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             // ARRANGE
             var borrarTipoObjeto = new TipoObjeto()
             {
-                Nombre = "Bicicleta"
+                Nombre = "Vehículo"
             };
+            contexto.TiposObjetos.Add(borrarTipoObjeto);
+            contexto.SaveChanges();
+
             // ACT
-            var peticion = new BorrarTipoObjetoRequest(borrarTipoObjeto.Id);
-            accionesTipoObjetoObjeto.Borrar(peticion);
+            var peticion = new BorrarTipoObjetoRequest();
+            accionesTipoObjeto.Borrar(peticion);
+
             // ASSERT
-            
-        }*/
+            var tipoObjetoDB = contexto.TiposObjetos.SingleOrDefault(o => o.Id == borrarTipoObjeto.Id);
+            Assert.Null(tipoObjetoDB);
+        }
+        [Fact]
+        public void No_Debe_Listar_Tipo_Objeto_Cuando_No_Se_Busca()
+        {
+            //ARRANGE
+            var noListarTipoObjeto = new TipoObjeto()
+            {
+                Nombre = "Vehículo"
+            };
+            contexto.TiposObjetos.Add(noListarTipoObjeto);
+            contexto.SaveChanges();
+
+            //ACT
+            var peticion = new ListarTipoObjetoRequest()
+            {
+                Buscar = "Electrodoméstico"
+            };
+            var respuesta = accionesTipoObjeto.Listar(peticion);
+
+            //ASSERT
+            Assert.Empty(respuesta.Elementos);
+        }
     }
 }
