@@ -15,6 +15,7 @@ public class Objeto
 	public decimal Anchura { get; set; }
 	public decimal Profundidad { get; set; }
 	public decimal Peso { get; set; }
+	
 }
 
 
