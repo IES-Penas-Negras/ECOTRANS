@@ -8,10 +8,6 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
 public class BorrarCiudadRequest
 {
-	public string NombreCiudad { get; set; }
-	public BorrarCiudadRequest()
-	{
+	public int Id { get; set; }
 		
-	}
-
 }
