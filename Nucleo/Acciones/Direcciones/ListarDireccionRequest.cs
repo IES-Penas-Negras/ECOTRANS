@@ -9,5 +9,9 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
     public class ListarDireccionRequest
     {
         public string? Buscar { get; set; }
+        public ListarDireccionRequest(string? buscar = null)
+        {
+            Buscar = buscar;
+        }
     }
 }
