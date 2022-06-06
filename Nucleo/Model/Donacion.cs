@@ -18,7 +18,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Model;
         public DateTime? FechaFin { get; set; }
         [StringLength(3000)]
         public string Descripcion { get; set; }
-    
+        public IEnumerable<ObjetoDonacion> Objetos { get; set; } = new List<ObjetoDonacion>();
 
 
 
