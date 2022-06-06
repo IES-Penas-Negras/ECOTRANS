@@ -22,7 +22,7 @@ namespace IESPeniasNegras.Ecotrans.Test;
             accionesCiudades= new AccionesCiudades(contexto);
         }
       
-     ///////////////////////////TEST LISTAR//////////////////////////////////////////////////////////
+        ///////////////////////////TEST para LISTAR//////////////////////////////////////////////////////////
 
         [Fact]
         public void Listar_Una_Ciudad()
@@ -48,7 +48,7 @@ namespace IESPeniasNegras.Ecotrans.Test;
             
         }
 
-     //////////////////////////TEST CREAR////////////////////////////////////////////////////////////
+        //////////////////////////TEST para CREAR////////////////////////////////////////////////////////////
 
         [Fact]
         public void Crear_Una_Ciudad()
@@ -69,20 +69,52 @@ namespace IESPeniasNegras.Ecotrans.Test;
             Assert.True(respuesta.Id>0);
             Assert.Equal(respuesta.Nombre, ciudad.Nombre);
         }
+    
+        //////////////////////////TEST para EDITAR///////////////////////////////////////////////////////////
 
-     [Fact]
+        [Fact]
 
         public void Editar_Una_Ciudad_Existente()
         {
+             // Given
+            
+            var ciudad = new Ciudad()
+            {
+                Nombre= "París"
+            };
+        
+
+            // When
+            var peticion= new EditarCiudadRequest();
+            var respuesta= accionesCiudades.Editar(peticion);
+
+            // Then
+            Assert.True(respuesta.Id>0);
+            Assert.Equal(respuesta.Nombre, ciudad.Nombre);
 
         }
 
-     [Fact]
+        //////////////////////////TEST para BORRAR//////////////////////////////////////////////////////////
+
+         [Fact]
 
         public void Borrar_Una_Ciudad()
         {
+              // Given
             
-    
+            var ciudad = new Ciudad()
+            {
+                Nombre= "París"
+            };
+        
+
+            // When
+            var peticion= new BorrarCiudadRequest();
+            var respuesta= accionesCiudades.Borrar(peticion);
+
+           // Then
+            var ciudadesDBContext= contexto.Ciudades.SingleOrDefault(o => o.Id==ciudad.Id);
+            Assert.Null(ciudadesDBContext);
 
         }
     } 
