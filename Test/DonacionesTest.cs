@@ -16,7 +16,7 @@ public class DonacionesTest
         accionesDonacion = new AccionesDonacion(); 
     }
     [Fact]
-    public void Debe_Crear_Una_Donacion(AccionesDonacion accionesDonacion)
+    public void Debe_Crear_Una_Donacion()
     {
         
         //Given
@@ -151,10 +151,8 @@ public class DonacionesTest
         contexto.Donaciones.Add(donacion);
         contexto.SaveChanges();
         //When
-        var peticion = new BorrarDonacionRequest()
-        {
-            Id = donacion.Id
-        };
+        var peticion = new BorrarDonacionRequest(donacion.Id);
+        
         accionesDonacion.Borrar(peticion);
         //Then
         var donacionDB = contexto.Donaciones.SingleOrDefault(d => d.Id == donacion.Id);
