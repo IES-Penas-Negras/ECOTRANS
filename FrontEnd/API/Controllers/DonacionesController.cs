@@ -28,7 +28,7 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         public ListarDonacionResponse Get(string? buscar)
         {
             var listarDonacionRequest = new ListarDonacionRequest(buscar);
-            return accionesDonacion.Listar(listarRequest);
+            return accionesDonacion.Listar(listarDonacionRequest);
         }
 
         [HttpPost]
