@@ -8,9 +8,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
     {
         [Required]
         [StringLength(300)]
-        public string NombreCiudad { get; set; }
-        public int TipoObjetoId { get; set; }
-        public int CP { get; set; }
+        public string Nombre { get; set; }
         
     }
 
