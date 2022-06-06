@@ -13,19 +13,28 @@ public class ObjetosController : Controller
         this.AccionesObjeto = AccionesObjeto;
     }
 
-    public IActionResult Detalles(string? buscar = null)
-    {
-        return View();
-    }
 
-    public IActionResult Detalles(string? buscar = null)
+    public IActionResult Detalles(ListarObjetoElemento elemento)
     {
-        return View();
+        return View(elemento);
     }
 
     public IActionResult Index(string? buscar = null)
     {
         var elementos = AccionesObjeto.Listar(new ListarObjetoRequest(buscar));
         return View(elementos);
+    }
+
+    public IActionResult Editar(ListarObjetoElemento editar)
+    {
+        return View("FormularioEdicion", editar);
+    }
+
+    public IActionResult Guardar(EditarObjetoRequest editarObjetoRequest)
+    {
+        
+        var respuesta = AccionesObjeto.Editar (editarObjetoRequest);
+        return View("Detalles", respuesta);
+        
     }
 }
