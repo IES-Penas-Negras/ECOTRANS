@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Provincias;
 
 public class AccionesProvincias : IDisposable
 {
@@ -38,11 +38,11 @@ public class AccionesProvincias : IDisposable
     public ListarProvinciaResponse Listar(ListarProvinciaRequest listarProvinciaRequest)
     {
         var provincias = contexto.Provincias
-               .Where(d => string.IsNullOrEmpty(listarProvinciaRequest.Buscar) || d.Provincia.Contains(listarProvinciaRequest.Buscar))
-               .ProjectTo<ListarProvinciaRequest>(mapper.ConfigurationProvider)
+               .Where(d => string.IsNullOrEmpty(listarProvinciaRequest.Buscar) || d.Nombre.Contains(listarProvinciaRequest.Buscar))
+               .ProjectTo<ListarProvinciaElemento>(mapper.ConfigurationProvider)
                .ToList();
 
-        return new ListarProvinciaResponse();
+        return new ListarProvinciaResponse(provincias);
     }
 
 

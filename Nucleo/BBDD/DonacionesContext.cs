@@ -8,15 +8,17 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 {
 	public class DonacionesContext : IdentityDbContext<Usuario, Rol, int>
 	{
+		public DonacionesContext()
+			: base()
+		{
+
+		}
+
 		public DonacionesContext(DbContextOptions<DonacionesContext> options)
             : base(options)
         {
         }
-		public DonacionesContext()
-			:base()
-		{
-			
-		}
+		
 		public string ConnectionString = "Server=Localhost;Database=Ecotrans;Trusted_Connection=True;";
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlServer(ConnectionString);
@@ -25,7 +27,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.BBDD
 		public DbSet<Provincia> Provincias { get; set; }
 		public DbSet<Donacion> Donaciones { get; set; }
 		public DbSet<Direccion> Direcciones { get;set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+		public DbSet<TipoObjeto> TiposObjetos { get; set; }
+		public DbSet<Usuario> Usuarios { get; set; }
 		public DbSet<Rol> Roles { get; set; }
 	}
 
