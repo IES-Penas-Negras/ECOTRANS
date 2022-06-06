@@ -1,5 +1,5 @@
 ﻿
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 {
     public class AccionesObjeto : IDisposable
     {
