@@ -4,6 +4,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Nucleo.Migrations
 {
     [DbContext(typeof(DonacionesContext))]
-    partial class DonacionesContextModelSnapshot : ModelSnapshot
+    [Migration("20220606104027_AñadirRolAdministrador")]
+    partial class AñadirRolAdministrador
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,29 +151,6 @@ namespace Nucleo.Migrations
                     b.ToTable("Objetos");
                 });
 
-            modelBuilder.Entity("IESPeniasNegras.Ecotrans.Nucleo.Model.ObjetoDonacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("DonacionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ObjetoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DonacionId");
-
-                    b.HasIndex("ObjetoId");
-
-                    b.ToTable("ObjetoDonacion");
-                });
-
             modelBuilder.Entity("IESPeniasNegras.Ecotrans.Nucleo.Model.Provincia", b =>
                 {
                     b.Property<int>("Id")
@@ -233,7 +212,7 @@ namespace Nucleo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TiposObjetos");
+                    b.ToTable("TipoObjeto");
                 });
 
             modelBuilder.Entity("IESPeniasNegras.Ecotrans.Nucleo.Model.Usuario", b =>
@@ -456,25 +435,6 @@ namespace Nucleo.Migrations
                     b.Navigation("TipoObjeto");
                 });
 
-            modelBuilder.Entity("IESPeniasNegras.Ecotrans.Nucleo.Model.ObjetoDonacion", b =>
-                {
-                    b.HasOne("IESPeniasNegras.Ecotrans.Nucleo.Model.Donacion", "Donacion")
-                        .WithMany("Objetos")
-                        .HasForeignKey("DonacionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IESPeniasNegras.Ecotrans.Nucleo.Model.Objeto", "Objeto")
-                        .WithMany()
-                        .HasForeignKey("ObjetoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Donacion");
-
-                    b.Navigation("Objeto");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("IESPeniasNegras.Ecotrans.Nucleo.Model.Rol", null)
@@ -524,11 +484,6 @@ namespace Nucleo.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("IESPeniasNegras.Ecotrans.Nucleo.Model.Donacion", b =>
-                {
-                    b.Navigation("Objetos");
                 });
 #pragma warning restore 612, 618
         }
