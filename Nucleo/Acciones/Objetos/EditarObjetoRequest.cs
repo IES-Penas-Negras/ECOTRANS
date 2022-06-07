@@ -2,11 +2,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 
-    public class EditarObjetoResponse
+    public class EditarObjetoRequest
     {
-		public int Id { get; set; }
+        public int IdEdicion { get; set; }
 		[Required]
 		[StringLength(300)]
 		public string Nombre { get; set; }

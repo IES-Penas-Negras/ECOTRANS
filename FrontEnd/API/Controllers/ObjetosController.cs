@@ -9,7 +9,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 
 //Si no detecta las referencias al Nucleo hay que ir a /FrontEnd/API/Dependencias/Proyectos, hacer click derecho sobre 
 //la carpeta de proyectos y hacer referencia a lo que no detecte (por lo general el Nucleo)

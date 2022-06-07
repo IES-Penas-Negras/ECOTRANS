@@ -1,4 +1,4 @@
-﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 
 namespace IESPeniasNegras.Ecotrans.MVC.Models

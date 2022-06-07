@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Nucleo\Nucleo.csproj" />
-    <ProjectReference Include="..\MVC\MVC.csproj" />
   </ItemGroup>
 
 </Project>
