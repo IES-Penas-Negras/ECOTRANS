@@ -22,99 +22,118 @@ namespace IESPeniasNegras.Ecotrans.Test;
             accionesCiudades= new AccionesCiudades(contexto);
         }
       
-        ///////////////////////////TEST para LISTAR//////////////////////////////////////////////////////////
+       #region "test para listar"
 
         [Fact]
         public void Listar_Una_Ciudad()
         {
-            // Given
+            // (Dado que) Given
             
             var ciudad = new Ciudad()
             {
                 Nombre= "París"
             };
+
+            contexto.Ciudades.Add(ciudad);
+            contexto.SaveChanges();
         
-            // When
+            // (Cuando) When
         
             var peticion = new ListarCiudadRequest();
             var respuesta = accionesCiudades.Listar(peticion);
         
             respuesta= accionesCiudades.Listar(peticion);
 
-            // Then
+            // (Entonces) Then
             
             Assert.NotEmpty(respuesta.Elementos);
             Assert.Equal(respuesta.Elementos.First().Nombre, ciudad.Nombre);
             
         }
+        #endregion
 
-        //////////////////////////TEST para CREAR////////////////////////////////////////////////////////////
+        #region "test para crear"
 
         [Fact]
         public void Crear_Una_Ciudad()
         {
-            // Given
+            // (Dado) Given
             
             var ciudad = new Ciudad()
             {
                 Nombre= "París"
             };
-        
 
-            // When
+            // (Cuando) When
+
             var peticion= new CrearCiudadRequest();
             var respuesta= accionesCiudades.Crear(peticion);
 
-            // Then
+            // (Entonces) Then
+
             Assert.True(respuesta.Id>0);
             Assert.Equal(respuesta.Nombre, ciudad.Nombre);
         }
+        #endregion
     
-        //////////////////////////TEST para EDITAR///////////////////////////////////////////////////////////
+        #region "test para editar"
 
         [Fact]
 
         public void Editar_Una_Ciudad_Existente()
         {
-             // Given
+             // (Dado que) Given
             
             var ciudad = new Ciudad()
             {
                 Nombre= "París"
             };
-        
 
-            // When
-            var peticion= new EditarCiudadRequest();
+            contexto.Ciudades.Add(ciudad);
+            contexto.SaveChanges();
+        
+            // (Cuando) When
+
+            var peticion= new EditarCiudadRequest("Roma", ciudad.Id);
             var respuesta= accionesCiudades.Editar(peticion);
 
-            // Then
-            Assert.True(respuesta.Id>0);
-            Assert.Equal(respuesta.Nombre, ciudad.Nombre);
+            // (Entonces) Then
+
+            Assert.Equal(respuesta.Id, ciudad.Id);
+            Assert.Equal(respuesta.Nombre, "Roma");
 
         }
+        #endregion
 
-        //////////////////////////TEST para BORRAR//////////////////////////////////////////////////////////
+        #region "test para borrar"
 
          [Fact]
 
         public void Borrar_Una_Ciudad()
         {
-              // Given
+              // (Dado que) Given
             
             var ciudad = new Ciudad()
             {
                 Nombre= "París"
             };
+
+            contexto.Ciudades.Add(ciudad);
+            contexto.SaveChanges();
         
+            // (Entonces) When
 
-            // When
-            var peticion= new BorrarCiudadRequest();
-            var respuesta= accionesCiudades.Borrar(peticion);
+            var peticion= new BorrarCiudadRequest(ciudad.Id);
+            accionesCiudades.Borrar(peticion);
 
-           // Then
+           // (Cuando) Then
+           
             var ciudadesDBContext= contexto.Ciudades.SingleOrDefault(o => o.Id==ciudad.Id);
             Assert.Null(ciudadesDBContext);
 
         }
+        #endregion
     } 
+
+
+        
