@@ -1,11 +1,5 @@
 ﻿using AutoMapper;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 using AutoMapper.QueryableExtensions;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
@@ -43,25 +37,22 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
         public EditarTipoObjetoResponse Editar(EditarTipoObjetoRequest editarTipoObjetoRequest)
         {
             EditarTipoObjetoResponse response = new EditarTipoObjetoResponse();
-            var editarTipoObjeto = mapper.Map<Model.TipoObjeto>(editarTipoObjetoRequest);
+            var editarTipoObjeto = contexto.TiposObjetos.Single(d => d.Id == editarTipoObjetoRequest.IdEdicion);
             if (editarTipoObjeto != null)
             {
                 mapper.Map(editarTipoObjetoRequest, editarTipoObjeto);
                 contexto.SaveChanges();
             }
             return mapper.Map<EditarTipoObjetoResponse>(editarTipoObjeto);
-            
-
         }
 
         public ListarTipoObjetoResponse Listar(ListarTipoObjetoRequest listarTipoObjetoRequest)
         {
-            var listarTipoObjeto = mapper.Map<Model.TipoObjeto>(listarTipoObjetoRequest);
             var tipoObjetos = contexto.TiposObjetos
                 .Where(d => string.IsNullOrEmpty(listarTipoObjetoRequest.Buscar) || d.Nombre.Contains(listarTipoObjetoRequest.Buscar))
                 .ProjectTo<ListarTipoObjetoElemento>(mapper.ConfigurationProvider)
                 .ToList();
-            return new ListarTipoObjetoResponse();
+            return new ListarTipoObjetoResponse(tipoObjetos);
 
         }
 

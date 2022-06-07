@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
 {
+   
     public class ListarTipoObjetoResponse
     {
+        public ListarTipoObjetoResponse(List<ListarTipoObjetoElemento> tipoObjetos)
+        {
+            Elementos = tipoObjetos;
+        }
+
         public List<ListarTipoObjetoElemento> Elementos { get; set; }
 
     }
