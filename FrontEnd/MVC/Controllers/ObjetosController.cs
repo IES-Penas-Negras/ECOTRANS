@@ -1,4 +1,4 @@
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IESPeniasNegras.Ecotrans.MVC.Controllers;

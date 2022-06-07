@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 {
     public class ObjetosProfile : Profile
     {

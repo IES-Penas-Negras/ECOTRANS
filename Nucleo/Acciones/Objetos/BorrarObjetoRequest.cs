@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 
     public class BorrarObjetoRequest
     {
