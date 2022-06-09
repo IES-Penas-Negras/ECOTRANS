@@ -14,11 +14,10 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
 
     public class ListarUsuarioElemento
     {
-        public int Id { get; set; }
-        public int ProvinciaId { get; set; }
-        public int CiudadId { get; set; }
-        public string Direccion1 { get; set; }
-        public string? Direccion2 { get; set; }
-        public int CodigoPostal { get; set; }
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public int FechaDeNacimiento { get; set; }
+        public int DNI_NIE { get; set; }
+        public string? Género { get; set; }
     }
 }
