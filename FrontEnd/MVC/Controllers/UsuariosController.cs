@@ -9,12 +9,11 @@ namespace MVC.Controllers;
     {
         public AccionesUsuarios accionesUsuarios { get; set; }
 
-        public IActionResult Index()
+         public IActionResult Index(string? buscar = null)
         {
-            return View();
-        
+            var elementos = accionesUsuarios.Listar(new ListarUsuarioRequest(buscar));
+            return View(elementos);
         }
     }
-    
 
 

@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
 {
-    public class ListarUsuariosRequest
+    public class ListarUsuarioRequest
     {
+        public ListarUsuarioRequest(string? buscar)
+        {
+            Buscar = buscar;
+        }
+
         public string? Buscar { get; set; }
     }
 }
