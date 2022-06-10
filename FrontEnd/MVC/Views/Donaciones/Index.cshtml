@@ -1,4 +1,6 @@
 ﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+@*<% using (html.BeginForm("Index", "Donacion", null, FormMethod.Post, new {@ = "myForm", @ = "myForm"})) {%>*@
+
 @model  ListarDonacionResponse
 
 <h2>Listado de Donaciones</h2>
@@ -34,7 +36,32 @@ else
 
                 </tr>
 
-                
+                <form method="post" >
+        <fieldset>
+          <legend>Añadir Donacion</legend>
+          <div>
+            <label for="Ecotrans">Ecotrans:</label>
+            <input type="text" name="Ecotrans" value="" />
+            @Html.ValidationMessage("Ecotrans")
+          </div>
+          <div>
+            <label for="Contacto">Contacto:</label>
+            <input type="text" name="Contacto" value="" />
+            @Html.ValidationMessage("Contacto")
+          </div>
+          <div>
+            <label for="Donacion">Donacion:</label>
+            <input type="text" name="Donacion" value="" />
+            @Html.ValidationMessage("Donacion")
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <input type="submit" value="Submit" class="submit" />
+          </div>
+        </fieldset>
+      </form>
+
+          
 
 
             }
