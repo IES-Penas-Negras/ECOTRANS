@@ -9,6 +9,11 @@ namespace MVC.Controllers;
     {
         public AccionesUsuarios accionesUsuarios { get; set; }
 
+        public UsuariosController(AccionesUsuarios AccionesDonacion)
+        {
+            this.accionesUsuarios = AccionesDonacion;
+        }
+
          public IActionResult Index(string? buscar = null)
         {
             var elementos = accionesUsuarios.Listar(new ListarUsuarioRequest(buscar));
