@@ -6,7 +6,7 @@
 }
 @using (Html.BeginForm("Edit", "Direcciones"))
 {
-     @Html.HiddenFor(d => d.IdEdicion)
+     @Html.HiddenFor(d => d.IdCrear)
 
     <div class="form-group">
         @Html.LabelFor(d => d.ProvinciaId, "ProvinciaId")
