@@ -1,0 +1,41 @@
+﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
+@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
+@model EditarDireccionRequest;
+@{
+    ViewData["Title"] = "Formulario Direcciones";
+}
+@using (Html.BeginForm("Edit", "Direcciones"))
+{
+     @Html.HiddenFor(d => d.IdEdicion)
+
+    <div class="form-group">
+        @Html.LabelFor(d => d.ProvinciaId, "ProvinciaId")
+        @Html.TextBoxFor(d => d.ProvinciaId, new { @class = "form-control"})
+        @Html.ValidationMessageFor(d => d.ProvinciaId, "Este campo es requerido")
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(d => d.CiudadId, "Ciudad")
+        @Html.TextBoxFor(d => d.CiudadId, new { @class="form-control md-6" } )
+        @Html.ValidationMessageFor(d => d.CiudadId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(d => d.Direccion1, "Direccion1")
+        @Html.TextBoxFor(d => d.Direccion1, new { @class="form-control md-6" } )
+        @Html.ValidationMessageFor(d => d.Direccion1)
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(d => d.Direccion2, "Direccion2")
+        @Html.TextBoxFor(d => d.Direccion2, new { @class="form-control md-6" } )
+        @Html.ValidationMessageFor(d => d.Direccion2)
+    </div>
+   
+    <div class="form-group">
+        @Html.LabelFor(d => d.CodigoPostal, "CodigoPostal")
+        @Html.TextBoxFor(d => d.CodigoPostal, new { @class="form-control md-6" } )
+        @Html.ValidationMessageFor(d => d.CodigoPostal)
+    </div>
+
+
+}
