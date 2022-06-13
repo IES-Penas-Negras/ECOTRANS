@@ -19,10 +19,10 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
             CreateMap<EditarObjetoRequest, Modelo.Objeto>();
             CreateMap<Modelo.Objeto, EditarObjetoResponse>();
 
-            CreateMap<ListarObjetoRequest, Modelo.Objeto>();
-            CreateMap<Modelo.Objeto, ListarObjetoResponse>();
+            CreateMap<Modelo.Objeto, ListarObjetoElemento>();
 
             CreateMap<BorrarObjetoRequest, Modelo.Objeto>();
+
         }
     }
 }

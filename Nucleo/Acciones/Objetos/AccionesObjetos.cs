@@ -1,4 +1,5 @@
 ﻿
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 using AutoMapper.QueryableExtensions;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 {
     public class AccionesObjeto : IDisposable
     {
@@ -47,11 +48,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 
         public EditarObjetoResponse Editar(EditarObjetoRequest editar)
         {
-            EditarObjetoResponse response = new EditarObjetoResponse();
-            var editarObjeto = mapper.Map<Modelo.Objeto>(editar);
+            var editarObjeto = contexto.Objetos.Single(d => d.Id == editar.IdEdicion);
+
             if (editarObjeto != null)
             {
-                mapper.Map(editar, editarObjeto);
+                mapper.Map(editar, editarObjeto); 
                 contexto.SaveChanges();
             }
             return mapper.Map<EditarObjetoResponse>(editarObjeto);
@@ -59,15 +60,14 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 
         public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
         {
-            var listarObjeto = mapper.Map<Modelo.Objeto>(listarObjetoRequest);
-            var objetos = contexto.Objetos
-               .Where(d => string.IsNullOrEmpty(listarObjetoRequest.Buscar) || d.Nombre.Contains(listarObjetoRequest.Buscar))
-               .ProjectTo<ListarObjetoElemento>(mapper.ConfigurationProvider)
+            var objetos = contexto.Objetos.Where(d => string.IsNullOrEmpty(listarObjetoRequest.Buscar) || d.Nombre.Contains(listarObjetoRequest.Buscar))
+               .ProjectTo<ListarObjetoElemento>(mapper.ConfigurationProvider) 
                .ToList();
-            return new ListarObjetoResponse();
+
+            return new ListarObjetoResponse(objetos);
         }
 
-        public void Borrar(BorrarObjetoRequest borrar)
+        public void Borrar(BorrarObjetoRequest borrar) 
         {
             var borrarObjeto = contexto.Objetos.Single(d => d.Id == borrar.Id);
             contexto.Objetos.Remove(borrarObjeto);
@@ -76,3 +76,4 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 
     }
 }
+
