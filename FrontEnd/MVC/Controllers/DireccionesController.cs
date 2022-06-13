@@ -14,9 +14,6 @@ namespace MVC.Controllers
             this.AccionesDireccion = AccionesDireccion;
         }
 
-
-
-
         //[Authorize(Roles =NombreRol....)]
         public IActionResult Guardar(EditarDireccionRequest editarDireccionesRequest)
         {
