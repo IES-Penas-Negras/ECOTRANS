@@ -40,7 +40,10 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
                .ProjectTo<ListarUsuarioElemento>(mapper.ConfigurationProvider) 
                .ToList();
 
-            return new ListarUsuarioResponse();
+            return new ListarUsuarioResponse()
+            {
+                Elementos = usuarios
+            };
         }
 
       
