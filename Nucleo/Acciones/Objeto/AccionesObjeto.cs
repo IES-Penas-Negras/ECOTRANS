@@ -48,8 +48,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
         public EditarObjetoResponse Editar(EditarObjetoRequest editar)
         {
-            EditarObjetoResponse response = new EditarObjetoResponse();
-            var editarObjeto = mapper.Map<Modelo.Objeto>(editar);
+            var editarObjeto = contexto.Objetos.Single(d => d.Id == editar.IdEdicion);
+
             if (editarObjeto != null)
             {
                 mapper.Map(editar, editarObjeto); 
@@ -60,12 +60,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
         public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
         {
-            var listarObjeto = mapper.Map<Modelo.Objeto>(listarObjetoRequest);
-            var objetos = contexto.Objetos
-               .Where(d => string.IsNullOrEmpty(listarObjetoRequest.Buscar) || d.Nombre.Contains(listarObjetoRequest.Buscar))
+            var objetos = contexto.Objetos.Where(d => string.IsNullOrEmpty(listarObjetoRequest.Buscar) || d.Nombre.Contains(listarObjetoRequest.Buscar))
                .ProjectTo<ListarObjetoElemento>(mapper.ConfigurationProvider) 
                .ToList();
-            return new ListarObjetoResponse();
+
+            return new ListarObjetoResponse(objetos);
         }
 
         public void Borrar(BorrarObjetoRequest borrar) 
