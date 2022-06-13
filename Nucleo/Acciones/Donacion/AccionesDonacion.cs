@@ -8,6 +8,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper.QueryableExtensions;
 
 namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 
@@ -40,30 +41,40 @@ public class AccionesDonacion : IDisposable
     public CrearDonacionResponse Crear(CrearDonacionRequest crearDonacionRequest)
     {
         var crearDonacion = mapper.Map<Modelo.Donacion>(crearDonacionRequest);
-        return new CrearDonacionResponse();
+
+        contexto.Donaciones.Add(crearDonacion);
+        contexto.SaveChanges();
+
+        return mapper.Map<CrearDonacionResponse>(crearDonacion);
     }
 
     public EditarDonacionResponse Editar(EditarDonacionRequest editar)
     {
         EditarDonacionResponse response = new EditarDonacionResponse();
-        var editarDonacion = mapper.Map<Modelo.Donacion>(editar);
-        return response;
-    }
+        var donacionEditada = contexto.Donaciones.Single(d => d.Id == editar.IdEdicion);
 
-    public ActionResult<CrearDonacionResponse> Post(AccionesDonacion accionesDonacionPost)
-    {
-        throw new NotImplementedException();
+         if (donacionEditada != null)
+        {
+            mapper.Map(editar, donacionEditada); 
+            contexto.SaveChanges();
+        }
+        return mapper.Map<EditarDonacionResponse>(donacionEditada);
     }
 
     public ListarDonacionResponse Listar(ListarDonacionRequest listarDonacionRequest)
     {
-        var listarDonacion = mapper.Map<Modelo.Donacion>(listarDonacionRequest);
-        return new ListarDonacionResponse();
+        var donaciones = contexto.Donaciones
+               .Where(d => string.IsNullOrEmpty(listarDonacionRequest.Buscar) || d.Titulo.Contains(listarDonacionRequest.Buscar))
+               .ProjectTo<ListarDonacionElemento>(mapper.ConfigurationProvider) 
+               .ToList();
+        return new ListarDonacionResponse(donaciones);
     }
 
     
     public void Borrar(BorrarDonacionRequest borrar)
     {
-        var borrarDonacion = mapper.Map<Modelo.Donacion>(borrar);
+        var donacionBorrada = contexto.Direcciones.Single(d => d.Id == borrar.Id);
+        contexto.Donaciones.Remove(donacionBorrada);
+        contexto.SaveChanges();
     }
 }
