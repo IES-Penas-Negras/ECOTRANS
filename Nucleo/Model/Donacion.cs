@@ -8,8 +8,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Model;
         public int Id { get; set; }
         public Usuario Usuario { get; set; }
         public int UsuarioId { get; set; }
-    // public string Objeto { get; set; }
-    public int DireccionId { get; set; }
+    
+        public int DireccionId { get; set; }
         public virtual Direccion? Direccion { get; set; }
         [Required]
         [StringLength(400)]
