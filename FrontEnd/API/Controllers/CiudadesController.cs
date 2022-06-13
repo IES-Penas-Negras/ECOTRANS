@@ -19,13 +19,6 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         }
 
 
-
-
-
-
-
-
-
         [HttpGet()]
         //[Authorize(Roles =NombreRol....)]
 
@@ -44,8 +37,6 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         //}
 
 
-
-
         [HttpDelete("{id}")]
         //[Authorize(Roles =NombreRol....)]
 
@@ -58,52 +49,37 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
             return Ok();
         }
 
-
-
         [HttpPost("{id}")]
         //[Authorize(Roles =NombreRol....)]
-        public ActionResult<CrearDireccionResponse> CrearCiudad([FromBody] CrearDireccionRequest ciudad)
+        public ActionResult<CrearCiudadResponse> CrearCiudad([FromBody] CrearCiudadRequest ciudad)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ciudad);
-            var creacionObjeto = acciones.Ciudad.Crear(ciudad);
+            var creacionCiudad = accionesCiudad.Crear(ciudad);
             return Created(Request.Path.Value + creacionCiudad.Id, creacionCiudad);
         }
-
 
 
         [HttpPut("{id}")]
         //[Authorize(Roles =NombreRol....)]
         public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPut, EditarCiudadRequest editarCiudadRequest)
 
-
         {
-
-
             using (var accionesCiudad = new AccionesCiudades())
             {
-                return accionesCiudad.Editar(editarCiudadRequest);
+                var ciudadEditada = accionesCiudad.Editar(editarCiudadRequest);
 
-                if (accionesCiudad.Editar == null)
+                if (ciudadEditada == null)
                 {
-                    return NoContentResult();
+                    return BadRequest();
 
                 }
+                else
+                {
+                    return Ok(ciudadEditada);
+                }
             }
-
-
         }
-
-        private ActionResult<EditarCiudadResponse> NoContentResult()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-
 
     }
 }
