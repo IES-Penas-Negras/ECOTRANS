@@ -12,14 +12,10 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
 public class CrearDonacionRequest
 {
     
-    public class Clases : DbContext
-    {
-       
-
         //Definicion de las clases requeridas para Donacion
         [Required]
         [StringLength(400)]
-        public DbSet<Titulo> Titulos { get; set; }
+        public string Titulo { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
 
@@ -27,56 +23,11 @@ public class CrearDonacionRequest
         [StringLength(3000)]
         public string Descripcion { get; set; }
 
-
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-
-    }
-
-
-
-
-
-
-    public class MenordeEdad : CrearDonacionRequest
-    {
-        private static int edadminima;
-
-        public MenordeEdad(string Apellidos, string Nombre)
-        { }
-
-        static MenordeEdad() => edadminima = 16;
-
-        //if(edadminima!=16)
-        //{
-        //    return(ErrorEventArgs);
-
-        //    }
-
+         public int UsuarioId { get; set; }
+    
+        public int DireccionId { get; set; }
+        public IEnumerable <int> Objetos { get; set; } = new List<int>();
         
-     }
-
-   public class DonacionesDto
-    {
-
-        [Required]
-        [StringLength(400)]
-        public string Titulo { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime? FechaFin { get; set; }
-
-
-        
-
-
-    }
-
-
-
-
-
-
 }
 
 
