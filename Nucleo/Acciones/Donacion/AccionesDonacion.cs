@@ -73,7 +73,7 @@ public class AccionesDonacion : IDisposable
     
     public void Borrar(BorrarDonacionRequest borrar)
     {
-        var donacionBorrada = contexto.Direcciones.Single(d => d.Id == borrar.Id);
+        var donacionBorrada = contexto.Donaciones.Single(d => d.Id == borrar.Id);
         contexto.Donaciones.Remove(donacionBorrada);
         contexto.SaveChanges();
     }
