@@ -12,11 +12,9 @@ else
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Usuario</th>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>FechaInicio</th>
-                <th>FechaFinal</th>
+                
             </tr>
         </thead>
 
@@ -27,12 +25,7 @@ else
             {
                 <tr>
                     <td>@usuario.Id</td>
-                    <td>@Html.ActionLink(@usuario.Id, "Detalles", new {usuario= usuario.Id})</td>
-                    <td>@usuario.ProvinciaId</td>
-                    <td>@usuario.CiudadId</td>
-                    <td>@usuario.Direccion1</td>
-                    <td>@usuario.Direccion2</td>
-                    <td>@usuario.CodigoPostal</td>
+                    <td>@Html.ActionLink(@usuario.Nombre, "Detalles", new {Id = usuario.Id})</td>
 
                 </tr>
             }
