@@ -14,10 +14,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
 
     public class ListarUsuarioElemento
     {
+        public int Id {get; set;}
         public string Nombre { get; set; }
-        public string Apellidos { get; set; }
-        public int FechaDeNacimiento { get; set; }
-        public int DNI_NIE { get; set; }
-        public string? Género { get; set; }
     }
 }
