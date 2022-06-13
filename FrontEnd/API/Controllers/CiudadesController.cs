@@ -1,4 +1,5 @@
 ﻿using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,29 +7,41 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IESPeniasNegras.Ecotrans.API.Controllers
 {
-   [Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class CiudadesController : ControllerBase
+{
+        private readonly AccionesCiudades accionesCiudad;
+        public CiudadesController(AccionesCiudades accionesCiudad)
+        {
+            this.accionesCiudad = accionesCiudad;
+        }
 
 
-    {
-        [HttpGet("{id}")]
+
+
+
+
+
+
+
+        [HttpGet()]
         //[Authorize(Roles =NombreRol....)]
 
-        public IEnumerable<ListarCiudadRequest> Listar(string? buscar)
+        //public IEnumerable<ListarCiudadResponse> Listar(string? buscar)
 
-        {
-            using (var accionesCiudad = new AccionesCiudades())
-            {
-                return accionesCiudad.Listar(ListarCiudadRequest);
-            }
+        //{
+        //    using (var accionesCiudad = new AccionesCiudades())
+        //    {
+        //        return accionesCiudad.Listar(ListarCiudadResponse);
+        //    }
 
-            if (Ciudad == null)
-            {
-                return (IEnumerable<ListarCiudadRequest>)NoContent();
-            }
-        }
+        //    if (Ciudad == null)
+        //    {
+        //        return (IEnumerable<ListarCiudadResponse>)NoContent();
+        //    }
+        //}
 
 
 
@@ -36,92 +49,67 @@ namespace IESPeniasNegras.Ecotrans.API.Controllers
         [HttpDelete("{id}")]
         //[Authorize(Roles =NombreRol....)]
 
-        public ActionResult<CrearCiudadResponse> Eliminar([FromBody] AccionesCiudades accionesciudadEliminar)
+
+        [HttpDelete("{id}")]
+        public ActionResult BorrarCiudad(int id)
+        {
+            var ciudad = new BorrarCiudadRequest(id);
+            accionesCiudad.Borrar(ciudad);
+            return Ok();
+        }
+
+
+
+        [HttpPost("{id}")]
+        //[Authorize(Roles =NombreRol....)]
+        public ActionResult<CrearDireccionResponse> CrearCiudad([FromBody] CrearDireccionRequest ciudad)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ciudad);
+            var creacionObjeto = acciones.Ciudad.Crear(ciudad);
+            return Created(Request.Path.Value + creacionCiudad.Id, creacionCiudad);
+        }
+
+
+
+        [HttpPut("{id}")]
+        //[Authorize(Roles =NombreRol....)]
+        public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPut, EditarCiudadRequest editarCiudadRequest)
+
 
         {
+
 
             using (var accionesCiudad = new AccionesCiudades())
             {
+                return accionesCiudad.Editar(editarCiudadRequest);
 
-                return accionesCiudad.Borrar(BorrarCiudadRequest);
+                if (accionesCiudad.Editar == null)
+                {
+                    return NoContentResult();
 
+                }
             }
-            if (Ciudad == null)
-            {
-                return NoContent();
-                return Ok();
-
-            }
-
-
 
 
         }
 
-        //Polimorfismo
-        public class Crear
+        private ActionResult<EditarCiudadResponse> NoContentResult()
         {
-
-
-            [HttpPost("{id}")]
-            //[Authorize(Roles =NombreRol....)]
-            public ActionResult<CrearCiudadResponse> Post([FromBody] AccionesCiudades accionesciudadPost)
-            {
-
-                using (var accionesCiudad = new AccionesCiudades())
-                {
-                    return accionesCiudad.Crear(CrearCiudadRequest);
-
-                    //if (ModelState.IsValid)
-                    //{
-                    //    return BadHttpRequestException();
-                    //}
-
-                }
-
-
-            }
-
-            public class Actualizar : Crear
-            {
-                
-                [HttpPut("{id}")]
-                //[Authorize(Roles =NombreRol....)]
-                public ActionResult<EditarCiudadResponse> Put([FromBody] AccionesCiudades accionesciudadPut)
-
-
-                {
-                   
-                        
-                    using (var accionesCiudad = new AccionesCiudades())
-                    {
-                        return accionesCiudad.Editar(EditarCiudadRequest);
-
-                        if (accionesCiudad.Editar == null)
-                        {
-                            return NoContentResult();
-
-                        }
-                    }
-
-
-                }
-
-                private ActionResult<EditarCiudadResponse> NoContentResult()
-                {
-                    throw new NotImplementedException();
-                }
-            }
-
-
-
-
-
-
+            throw new NotImplementedException();
         }
-    }
 
+
+
+
+
+
+
+    }
 }
+    
+
+
 
 
 

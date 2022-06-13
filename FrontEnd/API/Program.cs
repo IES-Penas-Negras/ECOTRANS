@@ -1,6 +1,6 @@
 using System.Reflection;
 using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.EntityFrameworkCore;

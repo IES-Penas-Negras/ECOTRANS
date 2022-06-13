@@ -1,5 +1,5 @@
 using System.Linq;
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
+using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Xunit;
 
@@ -79,8 +79,11 @@ public class ObjetosTest
         contexto.Objetos.Add(objeto);
         contexto.SaveChanges();
         // When
-        var peticion= new ListarObjetoRequest();
-        var respuesta= accionesObjeto.Listar(peticion);
+        var peticion = new ListarObjetoRequest()
+        {
+            Buscar = objeto.Nombre
+        };
+        var respuesta = accionesObjeto.Listar(peticion);
         // Then
         Assert.NotEmpty(respuesta.Elementos);
     }
@@ -147,6 +150,7 @@ public class ObjetosTest
             Peso=2
         };
         contexto.Objetos.Add(primerobjeto);
+        contexto.Objetos.Add(segundoobjeto);
         contexto.SaveChanges();
         // When
         var peticion= new ListarObjetoRequest()

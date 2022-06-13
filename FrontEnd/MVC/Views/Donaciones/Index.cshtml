@@ -1,39 +1,121 @@
 ﻿@using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
 @model  ListarDonacionResponse
 
+
 <h2>Listado de Donaciones</h2>
 @Html.ActionLink("Nueva Donacion", "Nuevo", "Donaciones", null, new { @class="btn btn-info" })
 @if (Model.Elementos.Count == 0)
 {
-    <h3>UPPS .... Lo sentimos ,no hay ninguna donacion  registrada</h3>
+<h3>UPPS .... Lo sentimos ,no hay ninguna donacion  registrada</h3>
 }
 else
 {
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>FechaInicio</th>
-                <th>FechaFinal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var donacion in Model.Elementos)
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>FechaInicio</th>
+            <th>FechaFinal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var donacion in Model.Elementos)
             {
-                <tr>
-                    <td>@donacion.Usuario</td>
-                    <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
-                    <td>@donacion.Titulo</td>
-                    <td>@donacion.Usuario</td>
-                    <td>@donacion.Descripcion</td>
-                    <td>@donacion.FechaInicio</td>
-                    <td>@donacion.FechaFinal</td>
+        <tr>
+            <td>@donacion.Usuario</td>
+            <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
+            <td>@donacion.Titulo</td>
+            <td>@donacion.Usuario</td>
+            <td>@donacion.Descripcion</td>
+            <td>@donacion.FechaInicio</td>
+            <td>@donacion.FechaFinal</td>
 
 
-                </tr>
+        </tr>
             }
-        </tbody>
-    </table>
+
+        @{
+    Validation.RequireField("NombreCompania", "NombreCompania is required.");
+    Validation.RequireField("Nombre de Contacto", "Nombre de Contacto is required.");
+    Validation.RequireField("Cantidad", "Cantidad is required.");
+   
+
+    if (IsPost)  {
+        var NombreCompania = Request.Form["NombreCompania"];
+        var Nombre de Contacto = Request.Form["Nombre de Contacto"];
+       
+        if(Validation.IsValid()){
+            <text>
+                You entered:
+                <br />
+                NombreCompania: @NombreCompania
+                <br />
+                Nombre de Contacto: @Nombre de Contacto
+                <br />
+               Cantidad: @Cantidad
+                <br />
+            </text>
+        }
+    }
+        }
+
+        <form method="post">
+            <fieldset>
+                <legend>Añadir Donacion</legend>
+                <div>
+                    <label for="NombreCompania">NombreCompania:</label>
+                    <input type="text" name="NombreCompania"
+                           value="@Request.Form["NombreCompania"]" />
+                    @Html.ValidationMessage("NombreCompania es obligatorio")
+                </div>
+                <div>
+                    <label for="Nombre de Contacto">Nombre de Contacto:</label>
+                    <input type="text" name="Nombre de Contacto"
+                           value="@Request.Form["Nombre de Contacto"]" />
+                    @Html.ValidationMessage("Nombre de Contacto para verificar datos ")
+                </div>
+                <div>
+                    <label for="Cantidad">Cantidad:</label>
+                    <input type="text" name="Cantidad"
+                           <p>Elige la cantidad:
+                           <select name="cantidad">
+                           <option>1$</option>
+                           <option>5$</option>
+                           <option>20$</option>
+                           <option>50$</option>
+                           </select>
+                           </p>
+                           value="@Request.Form["Cantidad"]" />
+                    @Html.ValidationMessage("Cantidad a abonar")
+                </div>
+                <div>
+
+
+
+
+
+                    <label>&nbsp;</label>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
+            </fieldset>
+        </form>
+    </tbody>
+
+
+    @{
+    ViewBag.Titulo = "Confirmacion de  Email";
+    }
+
+    <h2>@ViewBag.Titulo.</h2>
+    <div>
+        <p>
+            Gracias por confirmar tu email. Por favor @Html.ActionLink("Click para logearte", "Registrate", "Cuenta", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </p>
+    </div>
+</table>
+
+
+
 }
