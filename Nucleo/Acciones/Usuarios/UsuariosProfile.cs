@@ -13,7 +13,9 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
         public UsuariosProfile()
         {
             
-            CreateMap<Modelo.Usuario, ListarUsuarioElemento>();
+            CreateMap<Modelo.Usuario, ListarUsuarioElemento>() 
+                .ForMember(src => src.Nombre, 
+                    dest => dest.MapFrom(r => r.UserName));
   
         }
     }
