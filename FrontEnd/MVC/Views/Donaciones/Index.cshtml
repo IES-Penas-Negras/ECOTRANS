@@ -4,10 +4,12 @@
 
 <h2>Listado de Donaciones</h2>
 @Html.ActionLink("Nueva Donacion", "Nuevo", "Donaciones", null, new { @class="btn btn-info" })
+
 @if (Model.Elementos.Count == 0)
 {
 <h3>UPPS .... Lo sentimos ,no hay ninguna donacion  registrada</h3>
 }
+
 else
 {
     <table class="table table-bordered table-hover">
@@ -22,16 +24,18 @@ else
         </thead>
         <tbody>
             @foreach(var donacion in Model.Elementos)
-                {
-            <tr>
-                <td>@donacion.Usuario</td>
-                <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
-                <td>@donacion.Titulo</td>
-                <td>@donacion.Usuario</td>
-                <td>@donacion.Descripcion</td>
-                <td>@donacion.FechaInicio</td>
-                <td>@donacion.FechaFinal</td>
-            </tr>
+            {
+                <tr>
+                    <td>@donacion.Usuario</td>
+                    <td>@Html.ActionLink(@donacion.Usuario, "Detalles", new {donacion= donacion.Usuario})</td>
+                    <td>@donacion.Titulo</td>
+                    <td>@donacion.Usuario</td>
+                    <td>@donacion.Descripcion</td>
+                    <td>@donacion.FechaInicio</td>
+                    <td>@donacion.FechaFinal</td>
+                </tr>
+            }
         </tbody>
     </table>
 }
+                
