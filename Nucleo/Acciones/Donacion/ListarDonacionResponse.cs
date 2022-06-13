@@ -9,10 +9,15 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Donacion
 {
     public class ListarDonacionResponse
     {
-        public List<ListaDonacionElemento> Elementos { get; set; }
+        public ListarDonacionResponse(List<ListarDonacionElemento> donaciones)
+        {
+            Elementos = donaciones;
+        }
+
+        public List<ListarDonacionElemento> Elementos { get; set; }
     }
 
-    public class ListaDonacionElemento
+    public class ListarDonacionElemento
     {
 
         public string Usuario { get; set; }
