@@ -1,5 +1,4 @@
 ﻿
-using IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using AutoMapper;
 using Modelo = IESPeniasNegras.Ecotrans.Nucleo.Model;
 using AutoMapper.QueryableExtensions;
 
-namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
+namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objetos
 {
     public class AccionesObjeto : IDisposable
     {
@@ -52,7 +51,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
             if (editarObjeto != null)
             {
-                mapper.Map(editar, editarObjeto); 
+                mapper.Map(editar, editarObjeto);
                 contexto.SaveChanges();
             }
             return mapper.Map<EditarObjetoResponse>(editarObjeto);
@@ -67,7 +66,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
             return new ListarObjetoResponse(objetos);
         }
 
-        public void Borrar(BorrarObjetoRequest borrar) 
+        public void Borrar(BorrarObjetoRequest borrar)
         {
             var borrarObjeto = contexto.Objetos.Single(d => d.Id == borrar.Id);
             contexto.Objetos.Remove(borrarObjeto);
@@ -76,4 +75,3 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Objeto
 
     }
 }
-
