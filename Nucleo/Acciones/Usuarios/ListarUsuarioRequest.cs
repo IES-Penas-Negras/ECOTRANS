@@ -8,7 +8,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
 {
     public class ListarUsuarioRequest
     {
-        public ListarUsuarioRequest(string? buscar)
+        public ListarUsuarioRequest(string? buscar = null)
         {
             Buscar = buscar;
         }
