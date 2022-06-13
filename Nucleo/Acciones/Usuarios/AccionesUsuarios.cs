@@ -36,7 +36,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Usuarios
         public ListarUsuarioResponse Listar(ListarUsuarioRequest listarUsuarioRequest)
         {
             var usuarios = contexto.Usuarios
-               .Where(d => string.IsNullOrEmpty(listarUsuarioRequest.Buscar) || d.Usuario1.Contains(listarUsuarioRequest.Buscar))
+               .Where(d => string.IsNullOrEmpty(listarUsuarioRequest.Buscar) || d.UserName.Contains(listarUsuarioRequest.Buscar))
                .ProjectTo<ListarUsuarioElemento>(mapper.ConfigurationProvider) 
                .ToList();
 

@@ -6,6 +6,12 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
 public class EditarCiudadRequest
 {
+    public EditarCiudadRequest(string nombre, int idEdicion )
+    {
+       Nombre = nombre;
+       IdEdicion = idEdicion;   
+    }
+
     public int IdEdicion{get; set;}
     [Required]
     [StringLength(300)]
