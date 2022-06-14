@@ -34,8 +34,8 @@ public class DonacionesTest
             FechaFin = donacion.FechaFin,
             Descripcion = donacion.Descripcion
         };
-        var peticion = new CrearDonacionRequest();
-        var respuestaDonacion = accionesDonacion.Crear(peticion);
+
+        var respuestaDonacion = accionesDonacion.Crear(crearDonacion);
         
         //Then
         Assert.Equal(respuestaDonacion.Titulo, donacion.Titulo);
