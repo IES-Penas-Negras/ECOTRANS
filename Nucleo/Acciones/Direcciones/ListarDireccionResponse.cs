@@ -8,6 +8,11 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
 {
     public class ListarDireccionResponse
     {
+        public ListarDireccionResponse(List<ListarDireccionElemento> elementos)
+        {
+            Elementos = elementos;
+        }
+
         public List<ListarDireccionElemento> Elementos { get; set; }
 
     }

@@ -75,7 +75,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Direcciones
                .ProjectTo<ListarDireccionElemento>(mapper.ConfigurationProvider) 
                .ToList();
 
-            return new ListarDireccionResponse();
+            return new ListarDireccionResponse(direcciones);
         }
 
         public void Borrar(BorrarDireccionRequest borrarDireccionRequest)

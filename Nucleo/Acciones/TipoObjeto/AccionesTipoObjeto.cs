@@ -36,8 +36,8 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.TipoObjeto
 
         public EditarTipoObjetoResponse Editar(EditarTipoObjetoRequest editarTipoObjetoRequest)
         {
-            EditarTipoObjetoResponse response = new EditarTipoObjetoResponse();
             var editarTipoObjeto = contexto.TiposObjetos.Single(d => d.Id == editarTipoObjetoRequest.IdEdicion);
+
             if (editarTipoObjeto != null)
             {
                 mapper.Map(editarTipoObjetoRequest, editarTipoObjeto);
