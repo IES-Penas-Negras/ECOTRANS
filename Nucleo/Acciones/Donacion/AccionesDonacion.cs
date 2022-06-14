@@ -70,7 +70,14 @@ public class AccionesDonacion : IDisposable
         return new ListarDonacionResponse(donaciones);
     }
 
-    
+    //public ListarObjetoResponse Listar(ListarObjetoRequest listarObjetoRequest)
+    //{
+    //    var objetos = contexto.Objetos.Where(d => string.IsNullOrEmpty(listarObjetoRequest.Buscar) || d.Nombre.Contains(listarObjetoRequest.Buscar))
+    //       .ProjectTo<ListarObjetoElemento>(mapper.ConfigurationProvider)
+    //       .ToList();
+
+    //    return new ListarObjetoResponse(objetos);
+    //}
     public void Borrar(BorrarDonacionRequest borrar)
     {
         var donacionBorrada = contexto.Donaciones.Single(d => d.Id == borrar.Id);
