@@ -5,6 +5,7 @@ using IESPeniasNegras.Ecotrans.Nucleo.BBDD;
 using IESPeniasNegras.Ecotrans.Nucleo.Model;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +17,10 @@ builder.Services.AddDbContext<DonacionesContext>(options =>
 builder.Services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<DonacionesContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(options =>
+{
+    options.AddProfile<ObjetosProfile>();
+});
 
 builder.Services.AddTransient<AccionesDonacion>();
 builder.Services.AddTransient<AccionesObjeto>();
