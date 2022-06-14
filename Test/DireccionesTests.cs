@@ -142,6 +142,7 @@ public class DireccionesTests
             CodigoPostal = 45500,
         };
         contexto.Direcciones.Add(direccion1);
+        contexto.Direcciones.Add(direccion2);
         contexto.SaveChanges();
         //Cuando (W h e n)
         var peticion = new ListarDireccionRequest()
@@ -193,7 +194,7 @@ public class DireccionesTests
         Assert.Equal(respuesta.CiudadId, direccion.CiudadId);
         Assert.Equal(respuesta.Direccion1, direccion.Direccion1);
         Assert.Equal(respuesta.Direccion2, direccion.Direccion2);
-        Assert.Equal(respuesta.CodigoPostal, 64500);
+        Assert.Equal(respuesta.CodigoPostal, direccion.CodigoPostal);
     }
     [Fact]
     public void Debe_Borrar_Una_Direccion_Existente()
