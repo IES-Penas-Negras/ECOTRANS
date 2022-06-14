@@ -9,7 +9,6 @@ public class DonacionesTest
 {
     private readonly DonacionesTestContext contexto;
     private readonly AccionesDonacion accionesDonacion;
-    DateTime DateTime(string v) => throw new NotImplementedException();
     public DonacionesTest()
     {
         contexto = new DonacionesTestContext();         
@@ -23,8 +22,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/2022"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         //When
@@ -51,8 +50,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/2022"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
              Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
@@ -71,8 +70,8 @@ public class DonacionesTest
         var editarDonacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/2022"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         
@@ -89,8 +88,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/2022"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
@@ -111,8 +110,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/2022"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
         contexto.Donaciones.Add(donacion);
@@ -141,8 +140,8 @@ public class DonacionesTest
         var donacion = new Donacion()
         {
             Titulo = "Silla en muy buen estado",
-            FechaInicio = DateTime("25/05/2022"),
-            FechaFin = DateTime("30/06/200"),
+            FechaInicio = new DateTime(2022, 06, 14),
+            FechaFin = new DateTime(2022, 08, 08),
 
             Descripcion = "Silla en muy buen estado, fabricada en madera de roble, perfecta para poner en el salon"
         };
