@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace IESPeniasNegras.Ecotrans.TestUnitarios
+namespace IESPeniasNegras.Ecotrans.Test
 {
     public class TipoObjetoTest
     {
@@ -59,7 +59,7 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             var respuesta = accionesTipoObjeto.Editar(peticion);
 
             // ASSERT
-            Assert.NotEqual(respuesta.Nombre, editarTipoObjeto.Nombre);
+            Assert.Equal(respuesta.Nombre, editarTipoObjeto.Nombre);
             Assert.Equal(respuesta.Id, editarTipoObjeto.Id);
         }
         [Fact]
@@ -93,7 +93,7 @@ namespace IESPeniasNegras.Ecotrans.TestUnitarios
             contexto.SaveChanges();
 
             // ACT
-            var peticion = new BorrarTipoObjetoRequest();
+            var peticion = new BorrarTipoObjetoRequest(borrarTipoObjeto.Id);
             accionesTipoObjeto.Borrar(peticion);
 
             // ASSERT
