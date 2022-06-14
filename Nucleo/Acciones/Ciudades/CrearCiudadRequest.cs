@@ -6,7 +6,12 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades;
 
     public class CrearCiudadRequest
     {
-        [Required]
+    public CrearCiudadRequest(string nombre)
+    {
+        Nombre = nombre;
+    }
+
+    [Required]
         [StringLength(300)]
         public string Nombre { get; set; }
         

@@ -66,7 +66,7 @@ namespace IESPeniasNegras.Ecotrans.Test;
 
             // (Cuando) When
 
-            var peticion= new CrearCiudadRequest();
+            var peticion= new CrearCiudadRequest(ciudad.Nombre);
             var respuesta= accionesCiudades.Crear(peticion);
 
             // (Entonces) Then
