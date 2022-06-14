@@ -69,7 +69,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
 
         public EditarCiudadResponse Editar(EditarCiudadRequest editarCiudadRequest)
         {
-            var ciudadEditada = contexto.Direcciones.Single(d => d.Id == editarCiudadRequest.IdEdicion);
+            var ciudadEditada = contexto.Ciudades.Single(d => d.Id == editarCiudadRequest.IdEdicion);
 
             if (ciudadEditada != null)
             {
