@@ -6,11 +6,11 @@ namespace IESPeniasNegras.Ecotrans.MVC.Controllers;
 public class ObjetosController : Controller
 {
 
-    public AccionesObjeto AccionesObjeto { get; set; }
+    private readonly AccionesObjeto accionesObjeto;
 
-    public ObjetosController(AccionesObjeto AccionesObjeto)
+    public ObjetosController(AccionesObjeto accionesObjeto)
     {
-        this.AccionesObjeto = AccionesObjeto;
+        this.accionesObjeto = accionesObjeto;
     }
 
 
@@ -21,7 +21,7 @@ public class ObjetosController : Controller
 
     public IActionResult Index(string? buscar = null)
     {
-        var elementos = AccionesObjeto.Listar(new ListarObjetoRequest(buscar));
+        var elementos = accionesObjeto.Listar(new ListarObjetoRequest(buscar));
         return View(elementos);
     }
 
@@ -33,7 +33,7 @@ public class ObjetosController : Controller
     public IActionResult Guardar(EditarObjetoRequest editarObjetoRequest)
     {
         
-        var respuesta = AccionesObjeto.Editar (editarObjetoRequest);
+        var respuesta = accionesObjeto.Editar (editarObjetoRequest);
         return View("Detalles", respuesta);
         
     }
