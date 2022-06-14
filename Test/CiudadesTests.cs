@@ -42,12 +42,11 @@ namespace IESPeniasNegras.Ecotrans.Test;
             var peticion = new ListarCiudadRequest();
             var respuesta = accionesCiudades.Listar(peticion);
         
-            respuesta= accionesCiudades.Listar(peticion);
 
             // (Entonces) Then
             
             Assert.NotEmpty(respuesta.Elementos);
-            Assert.Equal(respuesta.Elementos.First().Nombre, ciudad.Nombre);
+            Assert.Equal(respuesta.Elementos.Single().Nombre, ciudad.Nombre);
             
         }
         #endregion

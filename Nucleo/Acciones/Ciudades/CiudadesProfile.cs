@@ -18,8 +18,7 @@ namespace IESPeniasNegras.Ecotrans.Nucleo.Acciones.Ciudades
             CreateMap<EditarCiudadRequest, Modelo.Ciudad>();
             CreateMap<Modelo.Ciudad, EditarCiudadResponse>();
 
-            CreateMap<ListarCiudadRequest, Modelo.Ciudad>();
-            CreateMap<Modelo.Ciudad, ListarCiudadResponse>();
+            CreateMap<Modelo.Ciudad, ListarCiudadElemento>();
 
             CreateMap<BorrarCiudadRequest, Modelo.Ciudad>();
         }
